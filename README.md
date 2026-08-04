@@ -53,7 +53,9 @@ cd quality-kpi-dashboard
 
 # Crear entorno virtual
 python3 -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
+source venv/bin/activate  
+
+# Windows: venv\Scripts\activate
 
 # Instalar dependencias
 pip install -r requirements.txt
