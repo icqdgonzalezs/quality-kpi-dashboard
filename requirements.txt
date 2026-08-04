@@ -1,4 +1,8 @@
-streamlit==1.26.0
+
+# 3. Dentro del editor (nano):
+#    Busca la línea que diga "pyarrow" (si es que está ahí) y bórrala.
+#    Asegúrate de dejar las otras librerías: streamlit, plotly, pandas, numpy.
+#    Para guardar y salir de nano: Presiona Ctrl + O, luego Enter, luego Ctrl + X.streamlit==1.26.0
 pandas==1.5.3
 numpy==1.23.5
 plotly==5.15.0
