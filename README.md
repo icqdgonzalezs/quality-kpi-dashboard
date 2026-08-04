@@ -72,7 +72,7 @@ streamlit run dashboard/app.py
 
 ```
 quality-kpi-dashboard/
-├── Dashboard/
+├── dashboard/
 │   └── app.py                  # Código principal del panel
 ├── data/
 │   └── calidad_muestra.csv     # Datos de muestra
