@@ -70,18 +70,8 @@ streamlit run dashboard/app.py
 
 ## 📁 Estructura del Proyecto
 
-\`\`\` quality-kpi-dashboard/
-├── dashboard/
-│   └── app.py              # Código principal del panel
-├── data/
-│   └── calidad_muestra.csv # Datos de muestra
-├── notebooks/
-│   └── analisis_calidad.py # Análisis exploratorio
-├── imagenes/
-│   └── panel_vista_previa.png
-├── requirements.txt        # Dependencias del proyecto
-├── .gitignore
-└── README.md               # Este documento \`\`\`
+📁 Estructura del Proyecto
+```quality-kpi-dashboard/ ├── Dashboard/ │ └── app.py # Código principal del panel ├── data/ │ └── calidad_muestra.csv # Datos de muestra ├── notebooks/ │ └── analisis_calidad.py # Análisis exploratorio ├── imagenes/ │ └── panel_vista_previa.png ├── requisitos.txt # Dependencias del proyecto ├── .gitignore └── README.md # Este documento ```
 
 
 ---
