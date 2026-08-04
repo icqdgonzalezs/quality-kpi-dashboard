@@ -1,3 +1,4 @@
+cat > README.md << 'EOF'
 # 📊 Quality KPI Dashboard
 
 [![Python](https://img.shields.io/badge/Python-3.9+-blue?logo=python&logoColor=white)](https://www.python.org/)
@@ -96,11 +97,13 @@ quality-kpi-dashboard/
 ---
 
 
-👤 Autor
-David González – Ingeniero Civil Químico | Data Analytics | Mejora Continua
+## 👤 Autor
 
-https://img.shields.io/badge/LinkedIn-David_Gonz%C3%A1lez-0A66C2?style=flat&logo=linkedin&logoColor=white
-https://img.shields.io/badge/GitHub-icqdgonzalezs-181717?style=flat&logo=github&logoColor=white
+**David González** – Ingeniero Civil Químico | Data Analytics | Mejora Continua
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-David_González-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/davidgonzalezsz)
+[![GitHub](https://img.shields.io/badge/GitHub-icqdgonzalezs-181717?style=flat&logo=github&logoColor=white)](https://github.com/icqdgonzalezs)
+
 
 
 Proyecto desarrollado como parte del portafolio profesional en análisis de datos industriales.
