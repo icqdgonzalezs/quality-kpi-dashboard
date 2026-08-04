@@ -64,3 +64,26 @@ pip install -r requirements.txt
 
 # Ejecutar panel
 streamlit run dashboard/app.py
+
+
+📁 Estructura del Proyecto
+
+quality-kpi-dashboard/
+├── dashboard/
+│   └── app.py              # Código principal del panel
+├── data/
+│   └── calidad_muestra.csv # Datos de muestra
+├── notebooks/
+│   └── analisis_calidad.py # Análisis exploratorio
+├── imagenes/
+│   └── panel_vista_previa.png
+├── requirements.txt        # Dependencias del proyecto
+├── .gitignore
+└── README.md               # Este documento
+
+
+👤 Autor
+David González – Ingeniero Civil Químico | Data Analytics | Mejora Continua
+
+https://img.shields.io/badge/LinkedIn-David_Gonzalez-blue?style=flat&logo=linkedin
+https://img.shields.io/badge/GitHub-icqdgonzalezs-black?style=flat&logo=github
