@@ -4,7 +4,9 @@
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.26.0-red?logo=streamlit&logoColor=white)](https://streamlit.io/)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
-**Panel interactivo de monitoreo de calidad para líneas de producción.**
+
+**Panel interactivo de monitoreo de calidad para líneas de producción.**  
+
 Simula una línea real, calcula indicadores de defectos, capacidad de proceso (Cp/Cpk) y genera diagramas de Pareto, facilitando la toma de decisiones basada en datos.
 
 ---
@@ -41,6 +43,7 @@ Simula una línea real, calcula indicadores de defectos, capacidad de proceso (C
 
 ---
 
+
 ## 🛠️ Stack tecnológico
 
 | Herramienta | Uso |
@@ -55,11 +58,11 @@ Simula una línea real, calcula indicadores de defectos, capacidad de proceso (C
 
 ## 📸 Capturas del panel
 
-**Evolución de la tasa de defectos**
-![Evolución de la tasa de defectos](imagenes/panel_vista_previa1.png)
+**Panel principal con KPIs y evolución**
+![Panel principal](imagenes/panel_vista_previa1.png)
 
-**Diagrama de Pareto – Tipos de defecto**
-![Diagrama de Pareto](imagenes/panel_vista_previa2.png)
+**Nuevo diagrama de Pareto con línea acumulada**
+![Diagrama de Pareto actualizado](imagenes/panel_vista_previa2.png)
 
 ---
 
@@ -79,6 +82,7 @@ pip install -r requirements.txt
 
 # Ejecutar el panel
 streamlit run dashboard/app.py
+
 ```
 
 ---
@@ -99,6 +103,7 @@ quality-kpi-dashboard/
 ├── requirements.txt            # Dependencias del proyecto
 ├── .gitignore
 └── README.md                   # Este documento
+
 ```
 
 
@@ -116,4 +121,6 @@ quality-kpi-dashboard/
 ---
 
 *Proyecto desarrollado como parte del portafolio profesional en análisis de datos industriales.*
+
+
 
