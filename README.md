@@ -100,7 +100,6 @@ quality-kpi-dashboard/
 ## 👤 Autor
 
 **David González** – Ingeniero Civil Químico | Data Analytics | Mejora Continua  
-✉️ [icq.dgonzalezs@gmail.com](mailto:icq.dgonzalezs@gmail.com)
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-David_González-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/davidgonzalezsz)
 [![GitHub](https://img.shields.io/badge/GitHub-icqdgonzalezs-181717?style=flat&logo=github&logoColor=white)](https://github.com/icqdgonzalezs)
@@ -109,10 +108,4 @@ quality-kpi-dashboard/
 ---
 
 *Proyecto desarrollado como parte del portafolio profesional en análisis de datos industriales.*
-
-
-
-Proyecto desarrollado como parte del portafolio profesional en análisis de datos industriales.
-
-
 
