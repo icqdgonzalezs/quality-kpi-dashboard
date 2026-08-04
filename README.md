@@ -71,7 +71,7 @@ pip install -r requirements.txt
 
 # Ejecutar el panel
 streamlit run dashboard/app.py
-
+```
 
 ---
 
