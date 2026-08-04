@@ -3,6 +3,7 @@
 [![Python](https://img.shields.io/badge/Python-3.9+-blue?logo=python&logoColor=white)](https://www.python.org/)
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.26.0-red?logo=streamlit&logoColor=white)](https://streamlit.io/)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://TU-URL-DE-STREAMLIT-CLOUD)
 
 
 ## 📌 Descripción general
@@ -112,6 +113,8 @@ quality-kpi-dashboard/
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-David_González-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/davidgonzalezsz)
 [![GitHub](https://img.shields.io/badge/GitHub-icqdgonzalezs-181717?style=flat&logo=github&logoColor=white)](https://github.com/icqdgonzalezs)
 [![Email](https://img.shields.io/badge/Email-icq.dgonzalezs%40gmail.com-EA4335?style=flat&logo=gmail&logoColor=white)](mailto:icq.dgonzalezs@gmail.com)
+
+
 
 ---
 
