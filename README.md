@@ -5,9 +5,11 @@
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
 
-**Panel interactivo de monitoreo de calidad para líneas de producción.**  
+## 📌 Descripción general
 
-Simula una línea real, calcula indicadores de defectos, capacidad de proceso (Cp/Cpk) y genera diagramas de Pareto, facilitando la toma de decisiones basada en datos.
+- **Panel interactivo de monitoreo de calidad** para líneas de producción.
+- **Simula datos reales de planta** y calcula indicadores de defectos, capacidad de proceso (Cp/Cpk) y diagramas de Pareto.
+- **Facilita la toma de decisiones** basada en datos, con visualización clara y exportable.
 
 ---
 
