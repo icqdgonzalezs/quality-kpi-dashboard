@@ -1,4 +1,3 @@
-cat > README.md << 'ENDOFFILE'
 # 📊 Quality KPI Dashboard
 
 [![Python](https://img.shields.io/badge/Python-3.9+-blue?logo=python&logoColor=white)](https://www.python.org/)
