@@ -82,7 +82,6 @@ pip install -r requirements.txt
 
 # Ejecutar el panel
 streamlit run dashboard/app.py
-
 ```
 
 ---
@@ -103,12 +102,8 @@ quality-kpi-dashboard/
 ├── requirements.txt            # Dependencias del proyecto
 ├── .gitignore
 └── README.md                   # Este documento
-
 ```
-
-
 ---
-
 
 ## 👤 Autor
 
