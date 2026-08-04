@@ -36,7 +36,6 @@
 
 ---
 
-
 ## 📈 Resultados clave
 
 - **80 % de los defectos** se concentran en solo 2 tipos de falla (*Mancha* y *Largo fuera*), según el diagrama de Pareto.
@@ -44,7 +43,6 @@
 - **Lote crítico:** el lote L79 presentó una tasa de defectos del **1.42 %**, muy por encima del promedio de línea (0.38 %).
 
 ---
-
 
 ## 🛠️ Stack tecnológico
 
