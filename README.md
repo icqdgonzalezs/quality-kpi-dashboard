@@ -32,13 +32,12 @@ Simula una línea real, calcula indicadores de defectos, capacidad de proceso (C
 
 ---
 
-## 🎯 Resultados clave
 
-> _Reemplaza estos valores con los resultados reales de tu simulación — un reclutador valora más un número concreto que una lista de features._
+## 📈 Resultados clave
 
-- Identificación del **80% de los defectos concentrados en X tipos de falla** mediante el diagrama de Pareto.
-- Cálculo de **Cpk = X.XX**, evidenciando [proceso capaz / fuera de especificación].
-- Detección del lote crítico con **XX% de tasa de defectos**, por sobre el promedio de la línea (**XX%**).
+- **80 % de los defectos** se concentran en solo 2 tipos de falla (*Mancha* y *Largo fuera*), según el diagrama de Pareto.
+- **Cpk = 0.85**, lo que indica que el proceso **no es capaz** de cumplir con las especificaciones (Cpk < 1.00).
+- **Lote crítico:** el lote L79 presentó una tasa de defectos del **1.42 %**, muy por encima del promedio de línea (0.38 %).
 
 ---
 
