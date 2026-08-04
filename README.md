@@ -38,9 +38,13 @@ Herramienta diseñada para ingenieros de calidad y supervisores de producción q
 
 ---
 
-## 📸 Captura del Panel
+## 📸 Capturas del Panel
 
-![Panel de Control de Calidad](imagenes/panel_vista_previa.png)
+### Evolución de la tasa de defectos
+![Evolución de la tasa de defectos](imagenes/panel_vista_previa1.png)
+
+### Diagrama de Pareto – Tipos de defecto
+![Diagrama de Pareto](imagenes/panel_vista_previa2.png)
 
 ---
 
@@ -53,9 +57,7 @@ cd quality-kpi-dashboard
 
 # Crear entorno virtual
 python3 -m venv venv
-source venv/bin/activate  
-
-# Windows: venv\Scripts\activate
+source venv/bin/activate  # Windows: venv\Scripts\activate
 
 # Instalar dependencias
 pip install -r requirements.txt
