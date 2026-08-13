@@ -1,124 +1,123 @@
 # 📊 Quality KPI Dashboard
 
-[![Python](https://img.shields.io/badge/Python-3.9+-blue?logo=python&logoColor=white)](https://www.python.org/)
-[![Streamlit](https://img.shields.io/badge/Streamlit-1.26.0-red?logo=streamlit&logoColor=white)](https://streamlit.io/)
+[![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python&logoColor=white)](https://www.python.org/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-1.30.0-red?logo=streamlit&logoColor=white)](https://streamlit.io/)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://TU-URL-DE-STREAMLIT-CLOUD)
 
-
-## 📌 Descripción general
-
-- **Panel interactivo de monitoreo de calidad** para líneas de producción.
-- **Simula datos reales de planta** y calcula indicadores de defectos, capacidad de proceso (Cp/Cpk) y diagramas de Pareto.
-- **Facilita la toma de decisiones** basada en datos, con visualización clara y exportable.
+**Panel de control de KPIs de calidad industrial**, con cálculo real de FPY, tasas de scrap/reproceso, diagrama de Pareto, comparación operacional (línea/turno/máquina) y análisis de capacidad de proceso (Cp/Cpk) según metodología Six Sigma.
 
 ---
 
-## ✨ Características principales
+## 📌 Problema industrial abordado
 
-- **Simulación de datos realista** para una línea de producción.
-- **Métricas de calidad** en tiempo simulado: tasa de defectos, defectos totales, lote crítico.
-- **Análisis de capacidad de proceso** (Cp y Cpk).
-- **Diagrama de Pareto** interactivo con identificación del principio 80/20.
-- **Visualización temporal** de la evolución de defectos.
-- **Exportación y uso de datos locales** en formato CSV.
+Una línea de envasado con **2 líneas, 4 máquinas y 3 turnos** necesita monitorear su desempeño de calidad para identificar dónde se concentran los defectos, comparar desempeño entre máquinas/turnos, y verificar si el proceso es estadísticamente capaz de cumplir especificaciones (Cp/Cpk).
 
----
+## 🎯 Objetivos
 
-## 📈 KPIs implementados
-
-| Indicador | Descripción |
-|-----------|-------------|
-| **Tasa de defectos (%)** | Porcentaje de unidades defectuosas por lote |
-| **Total defectuosos** | Conteo absoluto de unidades con defectos |
-| **Lote crítico** | Lote con el mayor número de defectos |
-| **Diagrama de Pareto** | Frecuencia de defectos por tipo (80/20) |
-| **Evolución temporal** | Tendencia de la tasa de defectos a lo largo del tiempo |
+1. Calcular KPIs descriptivos de calidad (FPY, tasa de defectos, scrap, reproceso).
+2. Identificar concentración de causas de defecto (Pareto 80/20).
+3. Comparar desempeño por línea, máquina, turno y operador.
+4. Evaluar capacidad de proceso (Cp/Cpk) de variables críticas.
+5. Generar conclusiones accionables, no solo gráficos.
 
 ---
 
-## 📈 Resultados clave
+## 📊 Datos y metodología
 
-- **80 % de los defectos** se concentran en solo 2 tipos de falla (*Mancha* y *Largo fuera*), según el diagrama de Pareto.
-- **Cpk = 0.85**, lo que indica que el proceso **no es capaz** de cumplir con las especificaciones (Cpk < 1.00).
-- **Lote crítico:** el lote L79 presentó una tasa de defectos del **1.42 %**, muy por encima del promedio de línea (0.38 %).
+**Los datos son 100% simulados**, generados por `src/data_generator.py` con semilla fija (`random_seed=42`) para reproducibilidad total. Supuestos documentados:
+
+- 2 líneas, 2 máquinas cada una (4 total). **M04 tiene +1.5 p.p. de tasa de defecto base**, simulando desgaste mecánico — cuello de botella intencional del dataset.
+- 3 turnos. **Turno Noche tiene +0.8 p.p.**, reflejando el efecto de fatiga/menor supervisión documentado en literatura de calidad.
+- De las unidades defectuosas: 70% reproceso, 30% scrap.
+- 250 lotes — tamaño elegido para que Cp/Cpk sea estadísticamente estable (mínimo recomendado: n≥30).
+
+Fórmulas (ver `src/kpis.py` y `src/capability.py`):
+```
+FPY = (producidas - defectuosas) / producidas
+Cp = (USL - LSL) / (6 * sigma)
+Cpk = min[(USL - media)/(3sigma), (media - LSL)/(3sigma)]
+```
+
+---
+
+## 📈 Resultados clave (reproducibles — se recalculan al correr el dashboard)
+
+- **FPY global: 95.7%** | Tasa de scrap: 1.29% | Tasa de reproceso: 2.97%
+- **M04** concentra la mayor tasa de defectos (5.4% vs. 3.8-4.1% del resto) — candidata prioritaria a mantenimiento preventivo.
+- **Turno Noche** presenta la peor calidad (4.9% vs. 3.9% en Mañana).
+- **Cpk = 1.13 (Peso)** y **Cpk = 1.01 (Longitud)** — ambas variables en zona "Marginal" (1.00 <= Cpk < 1.33): el proceso cumple especificación pero sin margen de seguridad.
 
 ---
 
 ## 🛠️ Stack tecnológico
 
 | Herramienta | Uso |
-|-------------|-----|
-| **Python 3.9+** | Lenguaje base |
-| **Streamlit** | Framework para dashboard interactivo |
-| **Plotly Express** | Gráficos interactivos (líneas, barras, Pareto) |
-| **Pandas** | Manipulación y análisis de datos |
-| **NumPy** | Cálculos numéricos y generación de datos simulados |
-
----
-
-## 📸 Capturas del panel
-
-**Panel principal con KPIs y evolución**
-![Panel principal](imagenes/panel_vista_previa1.png)
-
-**Nuevo diagrama de Pareto con línea acumulada**
-![Diagrama de Pareto actualizado](imagenes/panel_vista_previa2.png)
+|---|---|
+| Python 3.11 | Lenguaje base (compatibilidad con pyarrow en macOS antiguos) |
+| Streamlit 1.30 | Dashboard interactivo |
+| Plotly | Gráficos interactivos |
+| Pandas / NumPy | Procesamiento de datos |
+| PyYAML | Configuración externalizada |
+| Pytest | Suite de 11 tests unitarios |
 
 ---
 
 ## ⚙️ Instalación y ejecución
 
 ```bash
-# Clonar el repositorio
 git clone https://github.com/icqdgonzalezs/quality-kpi-dashboard.git
 cd quality-kpi-dashboard
-
-# Crear entorno virtual
 python3 -m venv venv
-source venv/bin/activate   # En Windows: venv\Scripts\activate
-
-# Instalar dependencias
+source venv/bin/activate
 pip install -r requirements.txt
-
-# Ejecutar el panel
 streamlit run dashboard/app.py
 ```
+
+**Nota de compatibilidad (macOS 10.14 o anterior):** requiere Python 3.11, no 3.13+. `pyarrow` no publica binarios para Python 3.13 en macOS antiguos y la compilación falla. Instalar Python 3.11 desde python.org si es necesario.
+
+Regenerar dataset: `python3 src/data_generator.py`
+Correr tests: `pytest tests/ -v`
 
 ---
 
 ## 📁 Estructura del proyecto
-
 ```
 quality-kpi-dashboard/
+├── config/
+│ └── quality_config.yaml # LSL/USL, umbrales Cpk
 ├── dashboard/
-│   └── app.py                  # Aplicación principal de Streamlit
+│ └── app.py # Aplicacion Streamlit
 ├── data/
-│   └── calidad_muestra.csv     # Datos de muestra (simulados)
+│ └── calidad_muestra.csv # 250 lotes simulados
+├── src/
+│ ├── data_generator.py # Generador de datos (supuestos documentados)
+│ ├── kpis.py # FPY, scrap, reproceso, Pareto
+│ └── capability.py # Cp/Cpk (Six Sigma)
+├── tests/
+│ ├── test_kpis.py
+│ └── test_capability.py # 11 tests, todos passing
 ├── imagenes/
-│   ├── panel_vista_previa1.png # Captura de evolución temporal
-│   └── panel_vista_previa2.png # Captura del diagrama de Pareto
-├── notebooks/
-│   └── analisis_calidad.py     # Análisis exploratorio de los datos
-├── requirements.txt            # Dependencias del proyecto
-├── .gitignore
-└── README.md                   # Este documento
+├── requirements.txt
+└── README.md
 ```
+
+---
+
+## 🔎 Conclusiones y líneas de mejora futuras
+
+1. **M04** requiere revisión de mantenimiento preventivo — principal contribuyente a la tasa de defectos.
+2. El **Cpk marginal** en ambas variables sugiere que el proceso no tiene margen de seguridad ante variabilidad adicional — se recomienda reducir sigma antes de ampliar limites de especificacion.
+3. Lineas futuras: carta de control estadistico (X-barra/R) para detectar causas asignables en tiempo real; incorporar datos reales de planta cuando esten disponibles.
+
 ---
 
 ## 👤 Autor
 
-**David González** – Ingeniero Civil Químico | Data Analytics | Mejora Continua  
+**David Camilo González Santibáñez** – Ingeniero Civil Químico | Data Analytics | Mejora Continua
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-David_González-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/davidgonzalezsz)
 [![GitHub](https://img.shields.io/badge/GitHub-icqdgonzalezs-181717?style=flat&logo=github&logoColor=white)](https://github.com/icqdgonzalezs)
-[![Email](https://img.shields.io/badge/Email-icq.dgonzalezs%40gmail.com-EA4335?style=flat&logo=gmail&logoColor=white)](mailto:icq.dgonzalezs@gmail.com)
-
-
 
 ---
 
-*Proyecto desarrollado como parte del portafolio profesional en análisis de datos industriales.*
-
-
-
+**Proyecto desarrollado como parte del portafolio profesional en análisis de datos industriales.**
