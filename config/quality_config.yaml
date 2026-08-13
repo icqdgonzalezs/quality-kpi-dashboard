@@ -1,0 +1,25 @@
+# Especificaciones de proceso para análisis de capacidad (Cp/Cpk)
+# Estos límites deben coincidir con los usados en src/data_generator.py
+
+variables_criticas:
+  peso_promedio:
+    nombre: "Peso (g)"
+    nominal: 500.0
+    lsl: 492.0    # límite inferior de especificación
+    usl: 508.0    # límite superior de especificación
+
+  longitud_promedio:
+    nombre: "Longitud (mm)"
+    nominal: 120.0
+    lsl: 117.5
+    usl: 122.5
+
+# Umbrales de semáforo para interpretación de Cpk (estándar de industria)
+umbrales_cpk:
+  excelente: 1.33   # Cpk >= 1.33 -> proceso capaz, verde
+  aceptable: 1.00   # 1.00 <= Cpk < 1.33 -> marginal, amarillo
+                     # Cpk < 1.00 -> no capaz, rojo
+
+# Supuesto de división de unidades defectuosas (debe coincidir con data_generator.py)
+proporcion_scrap: 0.30       # 30% de defectuosos son scrap irrecuperable
+proporcion_reproceso: 0.70   # 70% son recuperables mediante reproceso
