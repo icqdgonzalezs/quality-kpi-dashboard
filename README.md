@@ -3,11 +3,14 @@
 [![Python](https://img.shields.io/badge/Python-3.9+-blue?logo=python&logoColor=white)](https://www.python.org/)
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.26.0-red?logo=streamlit&logoColor=white)](https://streamlit.io/)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://TU-URL-DE-STREAMLIT-CLOUD)
 
 
-**Panel interactivo de monitoreo de calidad para líneas de producción.**  
+## 📌 Descripción general
 
-Simula una línea real, calcula indicadores de defectos, capacidad de proceso (Cp/Cpk) y genera diagramas de Pareto, facilitando la toma de decisiones basada en datos.
+- **Panel interactivo de monitoreo de calidad** para líneas de producción.
+- **Simula datos reales de planta** y calcula indicadores de defectos, capacidad de proceso (Cp/Cpk) y diagramas de Pareto.
+- **Facilita la toma de decisiones** basada en datos, con visualización clara y exportable.
 
 ---
 
@@ -34,7 +37,6 @@ Simula una línea real, calcula indicadores de defectos, capacidad de proceso (C
 
 ---
 
-
 ## 📈 Resultados clave
 
 - **80 % de los defectos** se concentran en solo 2 tipos de falla (*Mancha* y *Largo fuera*), según el diagrama de Pareto.
@@ -42,7 +44,6 @@ Simula una línea real, calcula indicadores de defectos, capacidad de proceso (C
 - **Lote crítico:** el lote L79 presentó una tasa de defectos del **1.42 %**, muy por encima del promedio de línea (0.38 %).
 
 ---
-
 
 ## 🛠️ Stack tecnológico
 
@@ -82,7 +83,6 @@ pip install -r requirements.txt
 
 # Ejecutar el panel
 streamlit run dashboard/app.py
-
 ```
 
 ---
@@ -103,12 +103,8 @@ quality-kpi-dashboard/
 ├── requirements.txt            # Dependencias del proyecto
 ├── .gitignore
 └── README.md                   # Este documento
-
 ```
-
-
 ---
-
 
 ## 👤 Autor
 
@@ -117,6 +113,8 @@ quality-kpi-dashboard/
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-David_González-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/davidgonzalezsz)
 [![GitHub](https://img.shields.io/badge/GitHub-icqdgonzalezs-181717?style=flat&logo=github&logoColor=white)](https://github.com/icqdgonzalezs)
 [![Email](https://img.shields.io/badge/Email-icq.dgonzalezs%40gmail.com-EA4335?style=flat&logo=gmail&logoColor=white)](mailto:icq.dgonzalezs@gmail.com)
+
+
 
 ---
 
