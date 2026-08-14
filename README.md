@@ -49,6 +49,16 @@ Cpk = min[(USL - media)/(3sigma), (media - LSL)/(3sigma)]
 
 ---
 
+## 📸 Capturas del panel
+
+**Panel principal — KPIs críticos y evolución de la tasa de defectos**
+![Panel principal](imagenes/panel_vista_previa1.png)
+
+**Análisis de causa raíz, comparación operacional y capacidad de proceso (Cp/Cpk)**
+![Analisis y capacidad](imagenes/panel_vista_previa2.png)
+
+---
+
 ## 🛠️ Stack tecnológico
 
 | Herramienta | Uso |
