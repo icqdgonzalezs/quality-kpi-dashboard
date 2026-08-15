@@ -109,25 +109,25 @@ pytest tests/ -v
 ```
 quality-kpi-dashboard/
 ├── config/
-│ └── quality_config.yaml # LSL/USL, umbrales Cpk (Six Sigma)
-├── dashboard/
-│ └── app.py # Aplicacion Streamlit (punto de entrada)
+│   └── quality_config.yaml        # LSL/USL, umbrales Cpk (Six Sigma)
 ├── data/
-│ └── calidad_muestra.csv # 250 lotes simulados (linea/maquina/turno/operador)
+│   └── calidad_muestra.csv        # 250 lotes simulados (linea/maquina/turno/operador)
+├── dashboard/
+│   └── app.py                     # Aplicacion Streamlit (punto de entrada)
 ├── src/
-│ ├── data_generator.py # Generador de datos (supuestos documentados)
-│ ├── kpis.py # FPY, scrap, reproceso, Pareto
-│ └── capability.py # Cp/Cpk (metodologia Six Sigma)
+│   ├── data_generator.py          # Generador de datos (supuestos documentados)
+│   ├── kpis.py                    # FPY, scrap, reproceso, Pareto
+│   └── capability.py              # Cp/Cpk (metodologia Six Sigma)
 ├── tests/
-│ ├── test_kpis.py # 6 casos
-│ └── test_capability.py # 5 casos (11 tests, todos passing)
-├── imagenes/ # Capturas del dashboard para el README
+│   ├── test_kpis.py               # 6 casos
+│   └── test_capability.py         # 5 casos (11 tests en total, todos passing)
+├── imagenes/                      # Capturas del dashboard para el README
 ├── .github/
-│ └── workflows/
-│ └── tests.yml # CI: pytest automatico en cada push
-├── requirements.txt # Dependencias con versiones fijadas
-├── LICENSE # MIT License
-└── README.md 
+│   └── workflows/
+│       └── tests.yml              # CI: pytest automatico en cada push
+├── requirements.txt                # Dependencias con versiones fijadas
+├── LICENSE                         # MIT License
+└── README.md
 ```
 
 
