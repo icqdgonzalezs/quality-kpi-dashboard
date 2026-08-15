@@ -72,44 +72,64 @@ Cpk = min[(USL - media)/(3sigma), (media - LSL)/(3sigma)]
 
 ---
 
-## ⚙️ Instalación y ejecución
+## ⚙️ Instalación y ejecución rápida
 
 ```bash
+# Clonar repositorio
 git clone https://github.com/icqdgonzalezs/quality-kpi-dashboard.git
 cd quality-kpi-dashboard
+
+# Crear entorno virtual
 python3 -m venv venv
-source venv/bin/activate
+source venv/bin/activate   # Windows: venv\Scripts\activate
+
+# Instalar dependencias
 pip install -r requirements.txt
+
+# Ejecutar el dashboard
 streamlit run dashboard/app.py
 ```
 
-**Nota de compatibilidad (macOS 10.14 o anterior):** requiere Python 3.11, no 3.13+. `pyarrow` no publica binarios para Python 3.13 en macOS antiguos y la compilación falla. Instalar Python 3.11 desde python.org si es necesario.
+**⚠️ Nota de compatibilidad (macOS 10.14 Mojave o anterior):** este proyecto requiere **Python 3.11**, no 3.13+. `pyarrow` (dependencia de Streamlit) no publica binarios precompilados para Python 3.13 en macOS antiguos. Instalar Python 3.11 desde [python.org](https://www.python.org/downloads/) si es necesario.
 
-Regenerar dataset: `python3 src/data_generator.py`
-Correr tests: `pytest tests/ -v`
+```bash
+# Opciones avanzadas
+
+# Regenerar el dataset simulado (250 lotes, semilla fija reproducible)
+python3 -m src.data_generator
+
+# Correr la suite de tests (11 casos)
+pytest tests/ -v
+```
 
 ---
 
 ## 📁 Estructura del proyecto
+
 ```
 quality-kpi-dashboard/
 ├── config/
-│ └── quality_config.yaml # LSL/USL, umbrales Cpk
+│ └── quality_config.yaml # LSL/USL, umbrales Cpk (Six Sigma)
 ├── dashboard/
-│ └── app.py # Aplicacion Streamlit
+│ └── app.py # Aplicacion Streamlit (punto de entrada)
 ├── data/
-│ └── calidad_muestra.csv # 250 lotes simulados
+│ └── calidad_muestra.csv # 250 lotes simulados (linea/maquina/turno/operador)
 ├── src/
 │ ├── data_generator.py # Generador de datos (supuestos documentados)
 │ ├── kpis.py # FPY, scrap, reproceso, Pareto
-│ └── capability.py # Cp/Cpk (Six Sigma)
+│ └── capability.py # Cp/Cpk (metodologia Six Sigma)
 ├── tests/
-│ ├── test_kpis.py
-│ └── test_capability.py # 11 tests, todos passing
-├── imagenes/
-├── requirements.txt
-└── README.md
+│ ├── test_kpis.py # 6 casos
+│ └── test_capability.py # 5 casos (11 tests, todos passing)
+├── imagenes/ # Capturas del dashboard para el README
+├── .github/
+│ └── workflows/
+│ └── tests.yml # CI: pytest automatico en cada push
+├── requirements.txt # Dependencias con versiones fijadas
+├── LICENSE # MIT License
+└── README.md 
 ```
+
 
 ---
 
