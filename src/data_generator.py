@@ -15,118 +15,44 @@ import numpy as np
 import pandas as pd
 from pathlib import Path
 from datetime import datetime, timedelta
+import yaml
 
 # ----------------------------------------------------------------------
-# Constantes globales
+# Configuración
 # ----------------------------------------------------------------------
-RANDOM_SEED = 42
+
+def load_generator_config() -> dict:
+    """Carga la configuración del generador desde YAML."""
+    config_path = Path(__file__).resolve().parent.parent / "config" / "generator_config.yaml"
+    with config_path.open(encoding="utf-8") as file:
+        return yaml.safe_load(file)
+
+
+GENERATOR_CONFIG = load_generator_config()
+
+RANDOM_SEED = int(GENERATOR_CONFIG["generation"]["random_seed"])
+START_DATE = datetime.strptime(GENERATOR_CONFIG["generation"]["start_date"], "%Y-%m-%d")
+END_DATE = datetime.strptime(GENERATOR_CONFIG["generation"]["end_date"], "%Y-%m-%d")
+
+BASE_PRODUCTION = GENERATOR_CONFIG["production_per_shift"]
+BASE_DEFECT_RATE = GENERATOR_CONFIG["base_defect_rate_pct"]
+DEFECT_TYPE_DIST = {
+    equipment_type: {"Sin defecto": max(0.0, 1.0 - sum(distribution.values())), **distribution}
+    for equipment_type, distribution in GENERATOR_CONFIG["defect_type_distribution"].items()
+}
+DRIFT_EVENTS = GENERATOR_CONFIG["drift_events"]
+PRODUCT_EFFECT = {
+    (item["equipment_id"], item["product_id"]): item["factor"]
+    for item in GENERATOR_CONFIG["product_effect"]
+}
 
 
 def load_plant_config() -> dict:
     """Carga la configuración maestra de planta desde YAML."""
     config_path = Path(__file__).resolve().parent.parent / "config" / "plant_config.yaml"
-
     with config_path.open(encoding="utf-8") as file:
-        import yaml
         return yaml.safe_load(file)
 
-# Turnos y operadores
-
-# Periodo de generación: 12 meses laborables (solo días de semana)
-START_DATE = datetime(2024, 1, 1)
-END_DATE = datetime(2024, 12, 31)
-
-# Tasas base de defectos por tipo de equipo (porcentaje)
-BASE_DEFECT_RATE = {
-    "DEPAL": 0.5,
-    "FEED": 0.8,
-    "FILL": 2.0,
-    "SEAM": 1.5,
-    "WASH": 0.7,
-    "XRAY": 0.6,
-    "CHECK": 1.2,
-    "LABEL": 1.0,
-    "PACK": 0.9,
-    "RINSE": 0.4,
-    "CAPPER": 1.8,
-    "FFS": 2.5,
-    "SEAL": 1.7,
-    "METAL": 1.0,
-    "CART": 0.8,
-    "PAL": 0.3,
-    "WRAP": 0.2,
-}
-
-# Producción base por tipo de equipo (unidades por turno, aproximadamente)
-BASE_PRODUCTION = {
-    "DEPAL": 5000,
-    "FEED": 5000,
-    "FILL": 4500,
-    "SEAM": 4500,
-    "WASH": 4600,
-    "XRAY": 4400,
-    "CHECK": 4400,
-    "LABEL": 4300,
-    "PACK": 4200,
-    "RINSE": 6000,
-    "CAPPER": 5800,
-    "FFS": 3000,
-    "SEAL": 3000,
-    "METAL": 3000,
-    "CART": 2900,
-    "PAL": 2800,
-    "WRAP": 2800,
-}
-
-# Distribución de tipos de defecto por tipo de equipo (probabilidades)
-DEFECT_TYPE_DIST = {
-    "DEPAL": {"Sin defecto": 0.7, "Material extraño": 0.2, "Defecto de etiqueta": 0.1},
-    "FEED": {"Sin defecto": 0.6, "Contaminación": 0.2, "Defecto de sellado": 0.2},
-    "FILL": {"Bajo peso": 0.4, "Sobrepeso": 0.3, "Contaminación": 0.2, "Defecto de sellado": 0.1},
-    "SEAM": {"Defecto de sellado": 0.5, "Integridad del paquete": 0.3, "Material extraño": 0.2},
-    "WASH": {"Contaminación": 0.6, "Defecto de etiqueta": 0.4},
-    "XRAY": {"Material extraño": 0.7, "Contaminación": 0.3},
-    "CHECK": {"Bajo peso": 0.5, "Sobrepeso": 0.5},
-    "LABEL": {"Defecto de etiqueta": 0.6, "Error de codificación": 0.4},
-    "PACK": {"Integridad del paquete": 0.7, "Defecto de etiqueta": 0.3},
-    "RINSE": {"Contaminación": 0.8, "Material extraño": 0.2},
-    "CAPPER": {"Defecto de sellado": 0.5, "Integridad del paquete": 0.3, "Error de codificación": 0.2},
-    "FFS": {"Defecto de sellado": 0.4, "Bajo peso": 0.3, "Sobrepeso": 0.2, "Contaminación": 0.1},
-    "SEAL": {"Defecto de sellado": 0.6, "Integridad del paquete": 0.4},
-    "METAL": {"Material extraño": 0.7, "Contaminación": 0.3},
-    "CART": {"Integridad del paquete": 0.6, "Defecto de etiqueta": 0.4},
-    "PAL": {"Integridad del paquete": 0.7, "Error de codificación": 0.3},
-    "WRAP": {"Integridad del paquete": 0.8, "Defecto de etiqueta": 0.2},
-}
-
-# Eventos de desviación programados (drifts) para simular problemas de proceso
-DRIFT_EVENTS = [
-    {
-        "equipment_id": "L2-FILL-01",
-        "start_month": 4,   # Abril
-        "end_month": 6,     # Junio
-        "factor_increment": 2.0,  # Aumenta progresivamente hasta duplicar la tasa
-    },
-    {
-        "equipment_id": "L1-SEAM-01",
-        "start_month": 8,
-        "end_month": 9,
-        "factor_increment": 1.5,
-    },
-    {
-        "equipment_id": "L3-FFS-01",
-        "start_month": 10,
-        "end_month": 11,
-        "factor_increment": 1.8,
-    },
-]
-
-# Efecto del producto en L3-FFS-01: PRD-B causa mayor tasa de defectos
-PRODUCT_EFFECT = {
-    ("L3-FFS-01", "PRD-B"): 1.5,
-    ("L2-CAPPER-01", "PRD-E"): 1.3,
-    ("L1-FILL-01", "PRD-C"): 1.2,
-}
 
 def create_equipment_master() -> pd.DataFrame:
     """Crea el maestro de equipos desde plant_config.yaml."""

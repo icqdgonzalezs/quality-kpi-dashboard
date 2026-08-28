@@ -1,0 +1,128 @@
+generation:
+  random_seed: 42
+  start_date: "2024-01-01"
+  end_date: "2024-12-31"
+
+production_per_shift:
+  DEPAL: 5000
+  FEED: 5000
+  FILL: 4500
+  SEAM: 4500
+  WASH: 4600
+  XRAY: 4400
+  CHECK: 4400
+  LABEL: 4300
+  PACK: 4200
+  RINSE: 6000
+  CAPPER: 5800
+  FFS: 3000
+  SEAL: 3000
+  METAL: 3000
+  CART: 2900
+  PAL: 2800
+  WRAP: 2800
+
+base_defect_rate_pct:
+  DEPAL: 0.5
+  FEED: 0.8
+  FILL: 2.0
+  SEAM: 1.5
+  WASH: 0.7
+  XRAY: 0.6
+  CHECK: 1.2
+  LABEL: 1.0
+  PACK: 0.9
+  RINSE: 0.4
+  CAPPER: 1.8
+  FFS: 2.5
+  SEAL: 1.7
+  METAL: 1.0
+  CART: 0.8
+  PAL: 0.3
+  WRAP: 0.2
+
+defect_type_distribution:
+  DEPAL:
+    Sin defecto: 0.7
+    Material extraño: 0.2
+    Defecto de etiqueta: 0.1
+  FEED:
+    Sin defecto: 0.6
+    Contaminación: 0.2
+    Defecto de sellado: 0.2
+  FILL:
+    Bajo peso: 0.4
+    Sobrepeso: 0.3
+    Contaminación: 0.2
+    Defecto de sellado: 0.1
+  SEAM:
+    Defecto de sellado: 0.5
+    Integridad del paquete: 0.3
+    Material extraño: 0.2
+  WASH:
+    Contaminación: 0.6
+    Defecto de etiqueta: 0.4
+  XRAY:
+    Material extraño: 0.7
+    Contaminación: 0.3
+  CHECK:
+    Bajo peso: 0.5
+    Sobrepeso: 0.5
+  LABEL:
+    Defecto de etiqueta: 0.6
+    Error de codificación: 0.4
+  PACK:
+    Integridad del paquete: 0.7
+    Defecto de etiqueta: 0.3
+  RINSE:
+    Contaminación: 0.8
+    Material extraño: 0.2
+  CAPPER:
+    Defecto de sellado: 0.5
+    Integridad del paquete: 0.3
+    Error de codificación: 0.2
+  FFS:
+    Defecto de sellado: 0.4
+    Bajo peso: 0.3
+    Sobrepeso: 0.2
+    Contaminación: 0.1
+  SEAL:
+    Defecto de sellado: 0.6
+    Integridad del paquete: 0.4
+  METAL:
+    Material extraño: 0.7
+    Contaminación: 0.3
+  CART:
+    Integridad del paquete: 0.6
+    Defecto de etiqueta: 0.4
+  PAL:
+    Integridad del paquete: 0.7
+    Error de codificación: 0.3
+  WRAP:
+    Integridad del paquete: 0.8
+    Defecto de etiqueta: 0.2
+
+drift_events:
+  - equipment_id: "L2-FILL-01"
+    start_month: 4
+    end_month: 6
+    factor_increment: 2.0
+  - equipment_id: "L1-SEAM-01"
+    start_month: 8
+    end_month: 9
+    factor_increment: 1.5
+  - equipment_id: "L3-FFS-01"
+    start_month: 10
+    end_month: 11
+    factor_increment: 1.8
+
+product_effect:
+  - equipment_id: "L3-FFS-01"
+    product_id: "PRD-B"
+    factor: 1.5
+  - equipment_id: "L2-CAPPER-01"
+    product_id: "PRD-E"
+    factor: 1.3
+  - equipment_id: "L1-FILL-01"
+    product_id: "PRD-C"
+    factor: 1.2
