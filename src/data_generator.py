@@ -31,7 +31,6 @@ def load_plant_config() -> dict:
         return yaml.safe_load(file)
 
 # Turnos y operadores
-SHIFTS = ["Mañana", "Tarde", "Noche"]
 OPERATORS = [f"OP{i:03d}" for i in range(1, 25)]  # OP001..OP024
 
 # Periodo de generación: 12 meses laborables (solo días de semana)
@@ -214,6 +213,8 @@ def generate_production_data() -> pd.DataFrame:
     """
     rng = np.random.default_rng(RANDOM_SEED)
 
+    config = load_plant_config()
+    shifts = config["shifts"]
     equipment_master = create_equipment_master()
     working_days = generate_working_dates(START_DATE, END_DATE)
 
@@ -225,7 +226,7 @@ def generate_production_data() -> pd.DataFrame:
         products = eq_row["products"]
 
         for date in working_days:
-            for shift in SHIFTS:
+            for shift in shifts:
                 # Elegir producto aleatorio de la línea
                 product_id = rng.choice(products)
 
