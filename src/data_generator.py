@@ -1,102 +1,362 @@
 """
-Generador de dataset simulado de calidad industrial.
+Generador de datos sintéticos industriales para Manufacturing Analytics.
 
-SUPUESTOS DOCUMENTADOS (metodología):
-- 2 líneas de producción (Línea 1, Línea 2), 2 máquinas por línea (4 total).
-- 3 turnos: Mañana, Tarde, Noche. El turno Noche tiene una tasa de defecto
-  base ligeramente mayor (+0.8 p.p.), reflejando el efecto de fatiga/menor
-  supervisión reportado en la literatura de gestión de calidad.
-- La máquina "M04" tiene una tasa de defecto base mayor a las demás
-  (+1.5 p.p.), simulando desgaste mecánico progresivo — es el cuello de
-  botella de calidad intencional del dataset.
-- De las unidades defectuosas, 70% son recuperables mediante reproceso
-  y 30% son scrap irrecuperable (supuesto fijo, documentado aquí).
-- peso_promedio y longitud_promedio son variables continuas con
-  distribución normal, usadas para el cálculo de Cp/Cpk. Los límites de
-  especificación (LSL/USL) están definidos en config/quality_config.yaml.
-- Semilla aleatoria fija (random_seed=42) para reproducibilidad total.
+Genera un conjunto de datos de producción y defectos para una planta ficticia
+de 4 líneas y 23 equipos, con estructura realista, eventos de desviación,
+variabilidad por turno y reproducibilidad garantizada (semilla fija 42).
+
+Los datos generados se guardan en data/raw/synthetic_production_data.csv
+
+Autor: Sistema Industrial KPI Intelligence
+Fecha: 2025-XX-XX
 """
+
 import numpy as np
 import pandas as pd
+from pathlib import Path
+from datetime import datetime, timedelta
+import yaml
+import json
 
+# ----------------------------------------------------------------------
+# Constantes globales
+# ----------------------------------------------------------------------
 RANDOM_SEED = 42
-N_LOTES = 250
-FECHA_INICIO = "2025-01-01"
 
-LINEAS = {
-    "Línea 1": ["M01", "M02"],
-    "Línea 2": ["M03", "M04"],  # M04 = máquina con mayor desgaste simulado
+# Configuración de líneas y equipos (según documento maestro sección 3.1)
+PLANT_CONFIG = {
+    "L1": {
+        "name": "Conservas",
+        "equipment": [
+            ("L1-DEPAL-01", "DEPAL", "Despaletizador"),
+            ("L1-FEED-01", "FEED", "Alimentador de latas"),
+            ("L1-FILL-01", "FILL", "Relleno"),
+            ("L1-SEAM-01", "SEAM", "Costura"),
+            ("L1-WASH-01", "WASH", "Lavadora de latas"),
+            ("L1-XRAY-01", "XRAY", "Rayos X / Inspección"),
+            ("L1-CHECK-01", "CHECK", "Báscula de control"),
+            ("L1-LABEL-01", "LABEL", "Etiquetador / Codificador"),
+            ("L1-PACK-01", "PACK", "Empaquetador de cajas"),
+        ],
+        "products": ["PRD-A", "PRD-B", "PRD-C", "PRD-D"],
+    },
+    "L2": {
+        "name": "Embotellado",
+        "equipment": [
+            ("L2-RINSE-01", "RINSE", "Enjuagador"),
+            ("L2-FILL-01", "FILL", "Relleno"),
+            ("L2-CAPPER-01", "CAPPER", "Capper"),
+            ("L2-LABEL-01", "LABEL", "Etiquetador"),
+            ("L2-CHECK-01", "CHECK", "Báscula de control"),
+            ("L2-PACK-01", "PACK", "Empaquetador de cajas"),
+        ],
+        "products": ["PRD-A", "PRD-C", "PRD-E", "PRD-F"],
+    },
+    "L3": {
+        "name": "Bolsa",
+        "equipment": [
+            ("L3-FFS-01", "FFS", "Formar-Llenar-Sellar"),
+            ("L3-SEAL-01", "SEAL", "Inspección de sellos"),
+            ("L3-CHECK-01", "CHECK", "Báscula de control"),
+            ("L3-METAL-01", "METAL", "Detector de metales"),
+            ("L3-CART-01", "CART", "Cartoner"),
+        ],
+        "products": ["PRD-B", "PRD-D", "PRD-E"],
+    },
+    "L4": {
+        "name": "Envases Secundarios",
+        "equipment": [
+            ("L4-PACK-01", "PACK", "Empaquetador de cajas"),
+            ("L4-PAL-01", "PAL", "Paletizador"),
+            ("L4-WRAP-01", "WRAP", "Envolvedora de film estirable"),
+        ],
+        "products": ["PRD-A", "PRD-B", "PRD-C", "PRD-D", "PRD-E", "PRD-F"],
+    },
 }
-TURNOS = ["Mañana", "Tarde", "Noche"]
-OPERADORES = ["Operador A", "Operador B", "Operador C",
-              "Operador D", "Operador E", "Operador F"]
-TIPOS_DEFECTO = ["Mancha", "Rayadura", "Peso fuera de rango",
-                  "Largo fuera de rango", "Contaminación"]
-PROB_DEFECTO_TIPO = [0.35, 0.25, 0.20, 0.15, 0.05]  # distribución tipo Pareto
 
-# Especificaciones de proceso (usadas también en config/quality_config.yaml)
-PESO_NOMINAL, PESO_STD, PESO_LSL, PESO_USL = 500.0, 2.5, 492.0, 508.0
-LARGO_NOMINAL, LARGO_STD, LARGO_LSL, LARGO_USL = 120.0, 0.8, 117.5, 122.5
+# Activos críticos (10 equipos principales para monitoreo SPC)
+CRITICAL_ASSETS = [
+    "L1-FILL-01", "L1-SEAM-01", "L1-CHECK-01",
+    "L2-FILL-01", "L2-CAPPER-01", "L2-CHECK-01",
+    "L3-FFS-01", "L3-SEAL-01", "L3-CHECK-01",
+    "L4-PACK-01",
+]
 
+# Turnos y operadores
+SHIFTS = ["Mañana", "Tarde", "Noche"]
+OPERATORS = [f"OP{i:03d}" for i in range(1, 25)]  # OP001..OP024
 
-def _tasa_defecto_base(maquina: str, turno: str) -> float:
-    """Tasa de defecto base (%) según máquina y turno, con los supuestos
-    documentados en el docstring del módulo."""
-    tasa = 3.8  # tasa base de línea, en %
-    if maquina == "M04":
-        tasa += 1.5
-    if turno == "Noche":
-        tasa += 0.8
-    return tasa
+# Periodo de generación: 12 meses laborables (solo días de semana)
+START_DATE = datetime(2024, 1, 1)
+END_DATE = datetime(2024, 12, 31)
 
+# Tasas base de defectos por tipo de equipo (porcentaje)
+BASE_DEFECT_RATE = {
+    "DEPAL": 0.5,
+    "FEED": 0.8,
+    "FILL": 2.0,
+    "SEAM": 1.5,
+    "WASH": 0.7,
+    "XRAY": 0.6,
+    "CHECK": 1.2,
+    "LABEL": 1.0,
+    "PACK": 0.9,
+    "RINSE": 0.4,
+    "CAPPER": 1.8,
+    "FFS": 2.5,
+    "SEAL": 1.7,
+    "METAL": 1.0,
+    "CART": 0.8,
+    "PAL": 0.3,
+    "WRAP": 0.2,
+}
 
-def generar_dataset(n_lotes: int = N_LOTES, seed: int = RANDOM_SEED) -> pd.DataFrame:
-    rng = np.random.default_rng(seed)
-    fechas = pd.date_range(start=FECHA_INICIO, periods=n_lotes, freq="D")
+# Producción base por tipo de equipo (unidades por turno, aproximadamente)
+BASE_PRODUCTION = {
+    "DEPAL": 5000,
+    "FEED": 5000,
+    "FILL": 4500,
+    "SEAM": 4500,
+    "WASH": 4600,
+    "XRAY": 4400,
+    "CHECK": 4400,
+    "LABEL": 4300,
+    "PACK": 4200,
+    "RINSE": 6000,
+    "CAPPER": 5800,
+    "FFS": 3000,
+    "SEAL": 3000,
+    "METAL": 3000,
+    "CART": 2900,
+    "PAL": 2800,
+    "WRAP": 2800,
+}
 
-    registros = []
-    for i, fecha in enumerate(fechas):
-        linea = rng.choice(list(LINEAS.keys()))
-        maquina = rng.choice(LINEAS[linea])
-        turno = rng.choice(TURNOS)
-        operador = rng.choice(OPERADORES)
+# Distribución de tipos de defecto por tipo de equipo (probabilidades)
+DEFECT_TYPE_DIST = {
+    "DEPAL": {"Sin defecto": 0.7, "Material extraño": 0.2, "Defecto de etiqueta": 0.1},
+    "FEED": {"Sin defecto": 0.6, "Contaminación": 0.2, "Defecto de sellado": 0.2},
+    "FILL": {"Bajo peso": 0.4, "Sobrepeso": 0.3, "Contaminación": 0.2, "Defecto de sellado": 0.1},
+    "SEAM": {"Defecto de sellado": 0.5, "Integridad del paquete": 0.3, "Material extraño": 0.2},
+    "WASH": {"Contaminación": 0.6, "Defecto de etiqueta": 0.4},
+    "XRAY": {"Material extraño": 0.7, "Contaminación": 0.3},
+    "CHECK": {"Bajo peso": 0.5, "Sobrepeso": 0.5},
+    "LABEL": {"Defecto de etiqueta": 0.6, "Error de codificación": 0.4},
+    "PACK": {"Integridad del paquete": 0.7, "Defecto de etiqueta": 0.3},
+    "RINSE": {"Contaminación": 0.8, "Material extraño": 0.2},
+    "CAPPER": {"Defecto de sellado": 0.5, "Integridad del paquete": 0.3, "Error de codificación": 0.2},
+    "FFS": {"Defecto de sellado": 0.4, "Bajo peso": 0.3, "Sobrepeso": 0.2, "Contaminación": 0.1},
+    "SEAL": {"Defecto de sellado": 0.6, "Integridad del paquete": 0.4},
+    "METAL": {"Material extraño": 0.7, "Contaminación": 0.3},
+    "CART": {"Integridad del paquete": 0.6, "Defecto de etiqueta": 0.4},
+    "PAL": {"Integridad del paquete": 0.7, "Error de codificación": 0.3},
+    "WRAP": {"Integridad del paquete": 0.8, "Defecto de etiqueta": 0.2},
+}
 
-        unidades_producidas = int(rng.normal(1000, 40))
-        tasa_defecto = _tasa_defecto_base(maquina, turno) / 100.0
-        unidades_defectuosas = int(rng.binomial(unidades_producidas, tasa_defecto))
+# Eventos de desviación programados (drifts) para simular problemas de proceso
+DRIFT_EVENTS = [
+    {
+        "equipment_id": "L2-FILL-01",
+        "start_month": 4,   # Abril
+        "end_month": 6,     # Junio
+        "factor_increment": 2.0,  # Aumenta progresivamente hasta duplicar la tasa
+    },
+    {
+        "equipment_id": "L1-SEAM-01",
+        "start_month": 8,
+        "end_month": 9,
+        "factor_increment": 1.5,
+    },
+    {
+        "equipment_id": "L3-FFS-01",
+        "start_month": 10,
+        "end_month": 11,
+        "factor_increment": 1.8,
+    },
+]
 
-        # División reproceso (recuperable) vs scrap (irrecuperable)
-        unidades_scrap = int(rng.binomial(unidades_defectuosas, 0.30))
-        unidades_reproceso = unidades_defectuosas - unidades_scrap
+# Efecto del producto en L3-FFS-01: PRD-B causa mayor tasa de defectos
+PRODUCT_EFFECT = {
+    ("L3-FFS-01", "PRD-B"): 1.5,
+    ("L2-CAPPER-01", "PRD-E"): 1.3,
+    ("L1-FILL-01", "PRD-C"): 1.2,
+}
 
-        defecto_tipo = rng.choice(TIPOS_DEFECTO, p=PROB_DEFECTO_TIPO)
+def create_equipment_master() -> pd.DataFrame:
+    """
+    Crea un DataFrame maestro con todos los equipos y sus atributos.
+    """
+    rows = []
+    for line_id, line_info in PLANT_CONFIG.items():
+        for eq_id, eq_type, eq_name in line_info["equipment"]:
+            rows.append({
+                "line_id": line_id,
+                "line_name": line_info["name"],
+                "equipment_id": eq_id,
+                "equipment_type": eq_type,
+                "equipment_name": eq_name,
+                "is_critical": eq_id in CRITICAL_ASSETS,
+                "products": line_info["products"],
+            })
+    return pd.DataFrame(rows)
 
-        # Variables continuas para Cp/Cpk — con leve corrimiento en Línea 2
-        corrimiento_peso = -0.6 if linea == "Línea 2" else 0.0
-        peso_promedio = round(rng.normal(PESO_NOMINAL + corrimiento_peso, PESO_STD), 2)
-        longitud_promedio = round(rng.normal(LARGO_NOMINAL, LARGO_STD), 2)
+def generate_working_dates(start: datetime, end: datetime) -> list:
+    """
+    Genera lista de fechas laborables (lunes a viernes) entre start y end.
+    """
+    dates = []
+    current = start
+    while current <= end:
+        if current.weekday() < 5:  # 0=lunes, 4=viernes
+            dates.append(current)
+        current += timedelta(days=1)
+    return dates
 
-        registros.append({
-            "lote": f"L{i+1:04d}",
-            "fecha": fecha.strftime("%Y-%m-%d"),
-            "linea": linea,
-            "maquina": maquina,
-            "turno": turno,
-            "operador": operador,
-            "unidades_producidas": unidades_producidas,
-            "unidades_defectuosas": unidades_defectuosas,
-            "unidades_reproceso": unidades_reproceso,
-            "unidades_scrap": unidades_scrap,
-            "defecto_tipo": defecto_tipo,
-            "peso_promedio": peso_promedio,
-            "longitud_promedio": longitud_promedio,
-        })
+def assign_operator(shift: str, rng: np.random.Generator) -> str:
+    """
+    Asigna un operador aleatorio a un turno. Se mantiene cierta consistencia:
+    los operadores de noche son un subconjunto fijo (OP017..OP024).
+    """
+    if shift == "Noche":
+        operator_pool = [f"OP{i:03d}" for i in range(17, 25)]
+    else:
+        operator_pool = [f"OP{i:03d}" for i in range(1, 17)]
+    return rng.choice(operator_pool)
 
-    return pd.DataFrame(registros)
+def get_defect_rate(equipment_id: str, equipment_type: str, date: datetime,
+                    shift: str, product_id: str) -> float:
+    """
+    Calcula la tasa de defectos para un equipo en una fecha y turno dados,
+    aplicando eventos de drift, efecto de turno y producto.
+    """
+    base_rate = BASE_DEFECT_RATE.get(equipment_type, 1.0) / 100.0
 
+    # Ajuste por turno: noche más variable
+    if shift == "Noche":
+        base_rate *= 1.3
+    elif shift == "Tarde":
+        base_rate *= 1.1
+
+    # Aplicar drift events
+    for event in DRIFT_EVENTS:
+        if event["equipment_id"] == equipment_id:
+            if event["start_month"] <= date.month <= event["end_month"]:
+                progress = (date.month - event["start_month"]) / (
+                    event["end_month"] - event["start_month"] + 1
+                )
+                factor = 1.0 + progress * (event["factor_increment"] - 1.0)
+                base_rate *= factor
+
+    # Efecto específico del producto
+    product_key = (equipment_id, product_id)
+    if product_key in PRODUCT_EFFECT:
+        base_rate *= PRODUCT_EFFECT[product_key]
+
+    # Limitar entre 0 y 0.5
+    return min(max(base_rate, 0.0001), 0.5)
+
+def generate_production_data() -> pd.DataFrame:
+    """
+    Genera el dataset completo de producción y defectos.
+    """
+    rng = np.random.default_rng(RANDOM_SEED)
+
+    equipment_master = create_equipment_master()
+    working_days = generate_working_dates(START_DATE, END_DATE)
+
+    records = []
+    for _, eq_row in equipment_master.iterrows():
+        line_id = eq_row["line_id"]
+        equipment_id = eq_row["equipment_id"]
+        equipment_type = eq_row["equipment_type"]
+        products = eq_row["products"]
+
+        for date in working_days:
+            for shift in SHIFTS:
+                # Elegir producto aleatorio de la línea
+                product_id = rng.choice(products)
+
+                # Producción base con factor de turno
+                base_prod = BASE_PRODUCTION.get(equipment_type, 3000)
+                if shift == "Noche":
+                    prod_factor = rng.normal(0.93, 0.05)
+                elif shift == "Tarde":
+                    prod_factor = rng.normal(0.98, 0.03)
+                else:
+                    prod_factor = rng.normal(1.0, 0.02)
+                prod_factor = max(0.5, min(1.2, prod_factor))  # clamp
+
+                units_produced = int(round(base_prod * prod_factor))
+
+                # Tasa de defectos
+                defect_rate = get_defect_rate(equipment_id, equipment_type, date, shift, product_id)
+
+                # Generar unidades defectuosas usando distribución binomial
+                units_defective = rng.binomial(units_produced, defect_rate)
+
+                # Dividir entre scrap y rework
+                scrap_ratio = rng.beta(2, 3)  # media ~0.4
+                units_scrap = int(round(units_defective * scrap_ratio))
+                units_rework = units_defective - units_scrap
+
+                # Seleccionar defect_type según distribución del equipo
+                defect_types = list(DEFECT_TYPE_DIST[equipment_type].keys())
+                probs = list(DEFECT_TYPE_DIST[equipment_type].values())
+                # Normalizar por si no suma 1
+                probs = np.array(probs) / sum(probs)
+                if units_defective > 0:
+                    defect_type = rng.choice(defect_types, p=probs)
+                else:
+                    defect_type = "Sin defecto"
+
+                # Timestamp del turno: se asigna una hora del turno
+                hour_map = {"Mañana": 9, "Tarde": 15, "Noche": 23}
+                timestamp = datetime(date.year, date.month, date.day, hour_map[shift])
+
+                operator_id = assign_operator(shift, rng)
+
+                records.append({
+                    "timestamp": timestamp,
+                    "date": date.strftime("%Y-%m-%d"),
+                    "year": date.year,
+                    "month": date.month,
+                    "week": date.isocalendar()[1],
+                    "shift": shift,
+                    "operator_id": operator_id,
+                    "line_id": line_id,
+                    "equipment_id": equipment_id,
+                    "equipment_type": equipment_type,
+                    "product_id": product_id,
+                    "units_produced": units_produced,
+                    "units_defective": units_defective,
+                    "units_scrap": units_scrap,
+                    "units_rework": units_rework,
+                    "defect_type": defect_type,
+                })
+
+    df = pd.DataFrame(records)
+    df = df.sort_values(["timestamp", "line_id", "equipment_id"]).reset_index(drop=True)
+    return df
+
+def main():
+    """
+    Función principal: genera los datos y los guarda en CSV.
+    """
+    print("Generando datos sintéticos...")
+    df = generate_production_data()
+
+    # Crear directorio si no existe
+    output_dir = Path("data/raw")
+    output_dir.mkdir(parents=True, exist_ok=True)
+    output_path = output_dir / "synthetic_production_data.csv"
+
+    df.to_csv(output_path, index=False)
+    print(f"Dataset guardado en {output_path}")
+    print(f"Total de registros: {len(df)}")
+    print("\nPrimeras 5 filas:")
+    print(df.head())
+    print("\nResumen de defectos por equipo:")
+    print(df.groupby("equipment_id")["units_defective"].sum().sort_values(ascending=False).head(10))
 
 if __name__ == "__main__":
-    df = generar_dataset()
-    df.to_csv("data/calidad_muestra.csv", index=False)
-    print(f"Dataset generado: {len(df)} lotes → data/calidad_muestra.csv")
-    print(df.head())
+    main()
