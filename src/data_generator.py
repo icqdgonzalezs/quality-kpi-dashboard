@@ -30,14 +30,6 @@ def load_plant_config() -> dict:
         import yaml
         return yaml.safe_load(file)
 
-# Activos críticos (10 equipos principales para monitoreo SPC)
-CRITICAL_ASSETS = [
-    "L1-FILL-01", "L1-SEAM-01", "L1-CHECK-01",
-    "L2-FILL-01", "L2-CAPPER-01", "L2-CHECK-01",
-    "L3-FFS-01", "L3-SEAL-01", "L3-CHECK-01",
-    "L4-PACK-01",
-]
-
 # Turnos y operadores
 SHIFTS = ["Mañana", "Tarde", "Noche"]
 OPERATORS = [f"OP{i:03d}" for i in range(1, 25)]  # OP001..OP024
