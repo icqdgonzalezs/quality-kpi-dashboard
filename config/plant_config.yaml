@@ -1,0 +1,138 @@
+plant:
+  id: PLANT-01
+  name: "Planta Industrial Ficticia"
+  industry: "Fabricación y embalaje de alimentos"
+
+lines:
+  L1:
+    name: "Conservas"
+    equipment:
+      - id: "L1-DEPAL-01"
+        type: "DEPAL"
+        name: "Despaletizador"
+        critical: false
+      - id: "L1-FEED-01"
+        type: "FEED"
+        name: "Alimentador de latas"
+        critical: false
+      - id: "L1-FILL-01"
+        type: "FILL"
+        name: "Relleno"
+        critical: true
+      - id: "L1-SEAM-01"
+        type: "SEAM"
+        name: "Costura"
+        critical: true
+      - id: "L1-WASH-01"
+        type: "WASH"
+        name: "Lavadora de latas"
+        critical: false
+      - id: "L1-XRAY-01"
+        type: "XRAY"
+        name: "Rayos X / Inspección"
+        critical: false
+      - id: "L1-CHECK-01"
+        type: "CHECK"
+        name: "Báscula de control"
+        critical: true
+      - id: "L1-LABEL-01"
+        type: "LABEL"
+        name: "Etiquetador / Codificador"
+        critical: false
+      - id: "L1-PACK-01"
+        type: "PACK"
+        name: "Empaquetador de cajas"
+        critical: false
+
+  L2:
+    name: "Embotellado"
+    equipment:
+      - id: "L2-RINSE-01"
+        type: "RINSE"
+        name: "Enjuagador"
+        critical: false
+      - id: "L2-FILL-01"
+        type: "FILL"
+        name: "Relleno"
+        critical: true
+      - id: "L2-CAPPER-01"
+        type: "CAPPER"
+        name: "Capper"
+        critical: true
+      - id: "L2-LABEL-01"
+        type: "LABEL"
+        name: "Etiquetador"
+        critical: false
+      - id: "L2-CHECK-01"
+        type: "CHECK"
+        name: "Báscula de control"
+        critical: true
+      - id: "L2-PACK-01"
+        type: "PACK"
+        name: "Empaquetador de cajas"
+        critical: false
+
+  L3:
+    name: "Bolsa"
+    equipment:
+      - id: "L3-FFS-01"
+        type: "FFS"
+        name: "Formar-Llenar-Sellar"
+        critical: true
+      - id: "L3-SEAL-01"
+        type: "SEAL"
+        name: "Inspección de sellos"
+        critical: true
+      - id: "L3-CHECK-01"
+        type: "CHECK"
+        name: "Báscula de control"
+        critical: true
+      - id: "L3-METAL-01"
+        type: "METAL"
+        name: "Detector de metales"
+        critical: false
+      - id: "L3-CART-01"
+        type: "CART"
+        name: "Cartoner"
+        critical: false
+
+  L4:
+    name: "Envases Secundarios"
+    equipment:
+      - id: "L4-PACK-01"
+        type: "PACK"
+        name: "Empaquetador de cajas"
+        critical: true
+      - id: "L4-PAL-01"
+        type: "PAL"
+        name: "Paletizador"
+        critical: false
+      - id: "L4-WRAP-01"
+        type: "WRAP"
+        name: "Envolvedora de film estirable"
+        critical: false
+
+products:
+  PRD-A:
+    name: "Producto A"
+    lines: ["L1", "L2", "L4"]
+  PRD-B:
+    name: "Producto B"
+    lines: ["L1", "L3", "L4"]
+  PRD-C:
+    name: "Producto C"
+    lines: ["L1", "L2", "L4"]
+  PRD-D:
+    name: "Producto D"
+    lines: ["L1", "L3", "L4"]
+  PRD-E:
+    name: "Producto E"
+    lines: ["L2", "L3", "L4"]
+  PRD-F:
+    name: "Producto F"
+    lines: ["L2", "L4"]
+
+shifts:
+  - "Mañana"
+  - "Tarde"
+  - "Noche"
