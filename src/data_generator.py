@@ -110,11 +110,9 @@ def get_defect_rate(equipment_id: str, equipment_type: str, date: datetime,
     """
     base_rate = BASE_DEFECT_RATE.get(equipment_type, 1.0) / 100.0
 
-    # Ajuste por turno: noche más variable
-    if shift == "Noche":
-        base_rate *= 1.3
-    elif shift == "Tarde":
-        base_rate *= 1.1
+    # Ajuste por turno desde configuración externa
+    shift_multiplier = GENERATOR_CONFIG["shift_effects"]["defect_rate_multiplier"].get(shift, 1.0)
+    base_rate *= shift_multiplier
 
     # Aplicar drift events
     for event in DRIFT_EVENTS:
@@ -131,8 +129,9 @@ def get_defect_rate(equipment_id: str, equipment_type: str, date: datetime,
     if product_key in PRODUCT_EFFECT:
         base_rate *= PRODUCT_EFFECT[product_key]
 
-    # Limitar entre 0 y 0.5
-    return min(max(base_rate, 0.0001), 0.5)
+    # Limitar según configuración
+    limits = GENERATOR_CONFIG["generation_limits"]
+    return min(max(base_rate, limits["min_defect_rate"]), limits["max_defect_rate"])
 
 def generate_production_data() -> pd.DataFrame:
     """
@@ -158,15 +157,15 @@ def generate_production_data() -> pd.DataFrame:
                 # Elegir producto aleatorio de la línea
                 product_id = rng.choice(products)
 
-                # Producción base con factor de turno
+                # Producción base con distribución configurada por turno
                 base_prod = BASE_PRODUCTION.get(equipment_type, 3000)
-                if shift == "Noche":
-                    prod_factor = rng.normal(0.93, 0.05)
-                elif shift == "Tarde":
-                    prod_factor = rng.normal(0.98, 0.03)
-                else:
-                    prod_factor = rng.normal(1.0, 0.02)
-                prod_factor = max(0.5, min(1.2, prod_factor))  # clamp
+                production_config = GENERATOR_CONFIG["shift_effects"]["production_distribution"].get(shift, {"mean": 1.0, "std": 0.02})
+                prod_factor = rng.normal(production_config["mean"], production_config["std"])
+                production_limits = GENERATOR_CONFIG["generation_limits"]
+                prod_factor = max(
+                    production_limits["production_factor_min"],
+                    min(production_limits["production_factor_max"], prod_factor),
+                )
 
                 units_produced = int(round(base_prod * prod_factor))
 
@@ -177,7 +176,8 @@ def generate_production_data() -> pd.DataFrame:
                 units_defective = rng.binomial(units_produced, defect_rate)
 
                 # Dividir entre scrap y rework
-                scrap_ratio = rng.beta(2, 3)  # media ~0.4
+                beta_config = GENERATOR_CONFIG["scrap_rework"]
+                scrap_ratio = rng.beta(beta_config["beta_alpha"], beta_config["beta_beta"])
                 units_scrap = int(round(units_defective * scrap_ratio))
                 units_rework = units_defective - units_scrap
 
@@ -192,7 +192,7 @@ def generate_production_data() -> pd.DataFrame:
                     defect_type = "Sin defecto"
 
                 # Timestamp del turno: se asigna una hora del turno
-                hour_map = {"Mañana": 9, "Tarde": 15, "Noche": 23}
+                hour_map = GENERATOR_CONFIG["shift_effects"]["timestamp_hour"]
                 timestamp = datetime(date.year, date.month, date.day, hour_map[shift])
 
                 operator_id = assign_operator(shift, rng, operators)
