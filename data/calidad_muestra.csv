@@ -1,251 +1,251 @@
-lote,fecha,linea,maquina,turno,operador,unidades_producidas,unidades_defectuosas,unidades_reproceso,unidades_scrap,defecto_tipo,peso_promedio,longitud_promedio
-L0001,2025-01-01,Línea 1,M02,Tarde,Operador C,1030,43,24,19,Peso fuera de rango,499.21,119.99
-L0002,2025-01-02,Línea 2,M03,Tarde,Operador C,1031,31,21,10,Mancha,501.6,119.96
-L0003,2025-01-03,Línea 1,M02,Noche,Operador C,1048,48,39,9,Mancha,501.08,121.71
-L0004,2025-01-04,Línea 1,M02,Tarde,Operador B,967,31,25,6,Rayadura,497.94,120.52
-L0005,2025-01-05,Línea 2,M03,Mañana,Operador E,953,36,23,13,Rayadura,499.95,120.7
-L0006,2025-01-06,Línea 2,M03,Noche,Operador B,1002,37,29,8,Mancha,497.24,120.77
-L0007,2025-01-07,Línea 2,M04,Mañana,Operador E,1006,60,43,17,Mancha,498.92,118.98
-L0008,2025-01-08,Línea 1,M01,Noche,Operador A,1019,46,32,14,Peso fuera de rango,501.56,119.75
-L0009,2025-01-09,Línea 1,M02,Mañana,Operador B,985,33,23,10,Mancha,500.03,120.38
-L0010,2025-01-10,Línea 1,M02,Tarde,Operador C,996,38,28,10,Mancha,496.69,119.2
-L0011,2025-01-11,Línea 1,M02,Tarde,Operador E,984,42,31,11,Mancha,499.15,120.67
-L0012,2025-01-12,Línea 2,M03,Noche,Operador B,1009,41,27,14,Peso fuera de rango,499.98,120.02
-L0013,2025-01-13,Línea 1,M02,Mañana,Operador D,959,29,20,9,Mancha,500.89,121.17
-L0014,2025-01-14,Línea 1,M02,Noche,Operador B,962,43,25,18,Rayadura,500.78,120.67
-L0015,2025-01-15,Línea 1,M01,Noche,Operador C,1016,49,34,15,Rayadura,499.65,120.85
-L0016,2025-01-16,Línea 1,M02,Tarde,Operador A,958,33,25,8,Peso fuera de rango,504.42,120.1
-L0017,2025-01-17,Línea 1,M01,Tarde,Operador F,952,32,23,9,Largo fuera de rango,502.1,119.28
-L0018,2025-01-18,Línea 1,M02,Tarde,Operador B,993,35,27,8,Mancha,496.94,118.98
-L0019,2025-01-19,Línea 1,M02,Mañana,Operador E,1006,50,37,13,Peso fuera de rango,498.97,120.89
-L0020,2025-01-20,Línea 2,M03,Noche,Operador E,1007,63,48,15,Largo fuera de rango,498.95,119.69
-L0021,2025-01-21,Línea 1,M02,Noche,Operador F,1056,47,27,20,Rayadura,499.59,120.27
-L0022,2025-01-22,Línea 1,M01,Mañana,Operador A,1025,36,24,12,Rayadura,497.8,119.73
-L0023,2025-01-23,Línea 1,M02,Mañana,Operador E,1001,33,24,9,Mancha,502.51,120.43
-L0024,2025-01-24,Línea 1,M02,Tarde,Operador B,972,32,22,10,Mancha,500.23,120.18
-L0025,2025-01-25,Línea 1,M02,Mañana,Operador D,965,25,16,9,Mancha,503.01,119.42
-L0026,2025-01-26,Línea 1,M02,Tarde,Operador B,993,42,28,14,Largo fuera de rango,496.33,121.7
-L0027,2025-01-27,Línea 1,M01,Noche,Operador E,1073,51,35,16,Mancha,504.32,119.21
-L0028,2025-01-28,Línea 2,M03,Noche,Operador F,1017,51,40,11,Mancha,498.73,120.19
-L0029,2025-01-29,Línea 2,M03,Tarde,Operador D,1040,45,32,13,Largo fuera de rango,497.6,120.25
-L0030,2025-01-30,Línea 1,M01,Noche,Operador B,1083,46,37,9,Rayadura,500.65,119.11
-L0031,2025-01-31,Línea 1,M02,Mañana,Operador A,1019,33,20,13,Contaminación,498.82,120.21
-L0032,2025-02-01,Línea 2,M04,Tarde,Operador E,995,38,27,11,Peso fuera de rango,500.14,119.7
-L0033,2025-02-02,Línea 1,M01,Mañana,Operador C,1069,45,33,12,Rayadura,497.37,119.73
-L0034,2025-02-03,Línea 2,M04,Noche,Operador F,1069,67,43,24,Peso fuera de rango,501.47,119.76
-L0035,2025-02-04,Línea 2,M04,Mañana,Operador B,1039,52,33,19,Mancha,502.33,120.6
-L0036,2025-02-05,Línea 2,M04,Tarde,Operador A,937,42,27,15,Rayadura,500.99,119.44
-L0037,2025-02-06,Línea 2,M04,Mañana,Operador B,951,46,35,11,Rayadura,500.92,118.17
-L0038,2025-02-07,Línea 2,M04,Noche,Operador E,1016,51,31,20,Mancha,495.45,121.18
-L0039,2025-02-08,Línea 1,M02,Noche,Operador C,977,47,29,18,Peso fuera de rango,500.68,119.31
-L0040,2025-02-09,Línea 2,M03,Mañana,Operador A,1015,51,37,14,Peso fuera de rango,497.54,119.34
-L0041,2025-02-10,Línea 1,M02,Tarde,Operador C,1000,28,22,6,Rayadura,498.86,120.09
-L0042,2025-02-11,Línea 1,M01,Noche,Operador E,949,36,27,9,Largo fuera de rango,500.69,118.87
-L0043,2025-02-12,Línea 1,M02,Mañana,Operador F,981,39,24,15,Mancha,498.24,119.86
-L0044,2025-02-13,Línea 2,M04,Noche,Operador B,984,59,50,9,Mancha,494.42,118.96
-L0045,2025-02-14,Línea 2,M03,Mañana,Operador F,972,27,17,10,Peso fuera de rango,502.72,119.94
-L0046,2025-02-15,Línea 1,M01,Noche,Operador D,1054,44,33,11,Mancha,502.01,121.38
-L0047,2025-02-16,Línea 2,M04,Tarde,Operador A,958,42,28,14,Mancha,497.89,119.57
-L0048,2025-02-17,Línea 1,M02,Tarde,Operador C,1017,33,25,8,Rayadura,502.67,119.73
-L0049,2025-02-18,Línea 1,M02,Mañana,Operador A,994,29,23,6,Mancha,500.4,120.86
-L0050,2025-02-19,Línea 2,M03,Noche,Operador D,998,51,38,13,Rayadura,496.61,119.63
-L0051,2025-02-20,Línea 1,M01,Tarde,Operador C,1044,47,34,13,Peso fuera de rango,506.49,120.18
-L0052,2025-02-21,Línea 2,M04,Tarde,Operador F,1023,63,41,22,Rayadura,500.93,120.53
-L0053,2025-02-22,Línea 2,M04,Noche,Operador A,988,67,49,18,Peso fuera de rango,498.56,118.41
-L0054,2025-02-23,Línea 2,M04,Tarde,Operador C,1035,51,37,14,Contaminación,505.45,120.35
-L0055,2025-02-24,Línea 1,M01,Noche,Operador E,937,46,39,7,Mancha,500.86,120.53
-L0056,2025-02-25,Línea 2,M03,Tarde,Operador F,1065,32,26,6,Peso fuera de rango,500.05,121.25
-L0057,2025-02-26,Línea 2,M03,Mañana,Operador B,982,36,27,9,Rayadura,502.27,118.08
-L0058,2025-02-27,Línea 1,M01,Mañana,Operador B,966,34,24,10,Mancha,500.96,120.45
-L0059,2025-02-28,Línea 2,M04,Noche,Operador F,996,72,50,22,Rayadura,497.18,119.94
-L0060,2025-03-01,Línea 2,M04,Tarde,Operador D,969,57,46,11,Largo fuera de rango,500.77,120.15
-L0061,2025-03-02,Línea 1,M02,Tarde,Operador A,1010,48,28,20,Peso fuera de rango,497.32,120.57
-L0062,2025-03-03,Línea 2,M04,Noche,Operador C,966,66,53,13,Peso fuera de rango,498.1,120.65
-L0063,2025-03-04,Línea 2,M03,Mañana,Operador F,1020,20,14,6,Largo fuera de rango,500.75,120.61
-L0064,2025-03-05,Línea 1,M01,Mañana,Operador C,1021,35,23,12,Peso fuera de rango,497.98,118.97
-L0065,2025-03-06,Línea 1,M02,Tarde,Operador A,975,33,22,11,Mancha,498.67,119.67
-L0066,2025-03-07,Línea 2,M04,Mañana,Operador B,903,46,34,12,Rayadura,498.62,119.77
-L0067,2025-03-08,Línea 2,M04,Noche,Operador B,1023,62,40,22,Contaminación,499.83,119.73
-L0068,2025-03-09,Línea 2,M03,Mañana,Operador D,930,31,23,8,Mancha,500.87,120.26
-L0069,2025-03-10,Línea 1,M01,Noche,Operador D,1048,48,31,17,Rayadura,499.14,119.93
-L0070,2025-03-11,Línea 1,M01,Tarde,Operador B,1019,43,32,11,Mancha,505.96,120.34
-L0071,2025-03-12,Línea 1,M02,Tarde,Operador E,1032,38,30,8,Peso fuera de rango,498.94,120.25
-L0072,2025-03-13,Línea 2,M03,Mañana,Operador A,909,36,27,9,Mancha,497.11,119.84
-L0073,2025-03-14,Línea 2,M03,Mañana,Operador A,958,44,29,15,Mancha,500.8,119.82
-L0074,2025-03-15,Línea 1,M01,Mañana,Operador A,1028,34,25,9,Rayadura,499.12,119.18
-L0075,2025-03-16,Línea 2,M03,Mañana,Operador B,908,36,21,15,Mancha,496.6,120.36
-L0076,2025-03-17,Línea 1,M01,Tarde,Operador A,992,41,32,9,Peso fuera de rango,502.5,120.95
-L0077,2025-03-18,Línea 1,M02,Noche,Operador F,1003,34,26,8,Peso fuera de rango,497.77,120.01
-L0078,2025-03-19,Línea 1,M02,Tarde,Operador C,1081,50,32,18,Peso fuera de rango,503.12,120.51
-L0079,2025-03-20,Línea 2,M03,Noche,Operador A,1013,54,41,13,Peso fuera de rango,503.6,121.38
-L0080,2025-03-21,Línea 2,M03,Mañana,Operador F,1054,42,28,14,Mancha,499.55,118.96
-L0081,2025-03-22,Línea 1,M01,Noche,Operador A,1071,46,28,18,Largo fuera de rango,499.49,119.13
-L0082,2025-03-23,Línea 1,M01,Noche,Operador A,949,43,27,16,Mancha,502.49,120.85
-L0083,2025-03-24,Línea 2,M04,Noche,Operador B,966,51,34,17,Peso fuera de rango,502.15,119.89
-L0084,2025-03-25,Línea 2,M04,Mañana,Operador C,1008,44,31,13,Rayadura,497.83,120.25
-L0085,2025-03-26,Línea 2,M03,Mañana,Operador E,1010,35,21,14,Mancha,494.11,118.51
-L0086,2025-03-27,Línea 2,M04,Tarde,Operador C,995,44,27,17,Peso fuera de rango,498.58,121.14
-L0087,2025-03-28,Línea 1,M02,Tarde,Operador A,1076,42,26,16,Rayadura,500.91,122.54
-L0088,2025-03-29,Línea 2,M04,Tarde,Operador C,1038,70,52,18,Rayadura,500.1,120.01
-L0089,2025-03-30,Línea 1,M01,Mañana,Operador E,922,31,19,12,Mancha,502.08,118.93
-L0090,2025-03-31,Línea 1,M02,Mañana,Operador C,998,34,19,15,Peso fuera de rango,495.27,118.43
-L0091,2025-04-01,Línea 1,M01,Mañana,Operador B,995,37,26,11,Mancha,495.74,119.33
-L0092,2025-04-02,Línea 1,M02,Tarde,Operador A,1001,34,23,11,Peso fuera de rango,501.2,118.77
-L0093,2025-04-03,Línea 2,M03,Mañana,Operador E,994,34,27,7,Largo fuera de rango,496.21,120.06
-L0094,2025-04-04,Línea 1,M02,Tarde,Operador B,1015,32,21,11,Largo fuera de rango,503.59,120.42
-L0095,2025-04-05,Línea 2,M03,Mañana,Operador B,987,46,30,16,Rayadura,504.11,119.86
-L0096,2025-04-06,Línea 1,M02,Noche,Operador C,1003,39,27,12,Contaminación,500.77,120.47
-L0097,2025-04-07,Línea 2,M03,Mañana,Operador B,1037,33,24,9,Peso fuera de rango,502.4,120.23
-L0098,2025-04-08,Línea 2,M04,Tarde,Operador B,882,37,22,15,Mancha,497.62,121.1
-L0099,2025-04-09,Línea 1,M02,Tarde,Operador D,999,23,13,10,Rayadura,499.73,119.97
-L0100,2025-04-10,Línea 2,M04,Mañana,Operador B,970,42,32,10,Peso fuera de rango,499.96,120.49
-L0101,2025-04-11,Línea 2,M03,Tarde,Operador E,1044,45,30,15,Largo fuera de rango,500.98,118.88
-L0102,2025-04-12,Línea 1,M02,Noche,Operador E,1024,44,32,12,Peso fuera de rango,499.73,120.28
-L0103,2025-04-13,Línea 1,M02,Tarde,Operador D,1005,31,23,8,Rayadura,501.58,120.0
-L0104,2025-04-14,Línea 2,M03,Mañana,Operador E,985,40,29,11,Mancha,498.15,118.68
-L0105,2025-04-15,Línea 2,M03,Noche,Operador E,1002,51,38,13,Peso fuera de rango,500.19,120.33
-L0106,2025-04-16,Línea 2,M04,Tarde,Operador E,985,50,34,16,Mancha,502.37,120.16
-L0107,2025-04-17,Línea 1,M02,Tarde,Operador A,978,35,21,14,Largo fuera de rango,501.09,119.01
-L0108,2025-04-18,Línea 2,M04,Mañana,Operador E,1097,67,46,21,Mancha,499.7,120.36
-L0109,2025-04-19,Línea 1,M01,Mañana,Operador B,981,34,22,12,Largo fuera de rango,499.81,119.84
-L0110,2025-04-20,Línea 2,M03,Mañana,Operador C,936,38,27,11,Peso fuera de rango,497.93,121.15
-L0111,2025-04-21,Línea 2,M03,Noche,Operador A,1017,43,29,14,Mancha,495.54,120.52
-L0112,2025-04-22,Línea 1,M01,Tarde,Operador D,1000,35,23,12,Contaminación,503.1,120.9
-L0113,2025-04-23,Línea 1,M01,Mañana,Operador A,1020,39,25,14,Largo fuera de rango,503.26,120.67
-L0114,2025-04-24,Línea 1,M02,Noche,Operador E,953,62,39,23,Mancha,499.1,120.28
-L0115,2025-04-25,Línea 1,M01,Tarde,Operador A,1000,33,21,12,Mancha,499.39,118.32
-L0116,2025-04-26,Línea 1,M02,Tarde,Operador D,972,35,23,12,Mancha,500.09,119.93
-L0117,2025-04-27,Línea 2,M04,Noche,Operador C,907,58,38,20,Mancha,500.58,119.69
-L0118,2025-04-28,Línea 1,M01,Mañana,Operador E,1007,40,27,13,Mancha,496.23,119.21
-L0119,2025-04-29,Línea 2,M04,Tarde,Operador E,1072,56,38,18,Rayadura,499.11,119.2
-L0120,2025-04-30,Línea 1,M02,Mañana,Operador E,969,28,20,8,Mancha,502.14,119.36
-L0121,2025-05-01,Línea 2,M03,Tarde,Operador A,944,46,35,11,Largo fuera de rango,503.23,120.81
-L0122,2025-05-02,Línea 2,M04,Tarde,Operador A,1077,53,36,17,Mancha,496.75,118.94
-L0123,2025-05-03,Línea 1,M01,Tarde,Operador B,995,44,32,12,Mancha,502.22,119.61
-L0124,2025-05-04,Línea 2,M04,Mañana,Operador F,893,48,33,15,Mancha,502.71,119.96
-L0125,2025-05-05,Línea 1,M02,Noche,Operador D,1031,44,32,12,Largo fuera de rango,501.4,120.45
-L0126,2025-05-06,Línea 2,M03,Noche,Operador F,952,48,33,15,Mancha,500.83,120.49
-L0127,2025-05-07,Línea 2,M03,Noche,Operador F,959,48,34,14,Peso fuera de rango,498.37,118.55
-L0128,2025-05-08,Línea 2,M03,Noche,Operador B,1038,51,37,14,Mancha,498.19,120.8
-L0129,2025-05-09,Línea 2,M03,Noche,Operador B,982,51,33,18,Largo fuera de rango,501.03,120.47
-L0130,2025-05-10,Línea 2,M03,Tarde,Operador F,985,48,41,7,Mancha,503.45,120.29
-L0131,2025-05-11,Línea 1,M01,Tarde,Operador E,913,27,20,7,Largo fuera de rango,505.01,120.66
-L0132,2025-05-12,Línea 1,M01,Noche,Operador A,984,28,19,9,Largo fuera de rango,494.79,120.49
-L0133,2025-05-13,Línea 2,M03,Mañana,Operador D,900,39,31,8,Peso fuera de rango,497.71,120.32
-L0134,2025-05-14,Línea 2,M03,Noche,Operador F,991,48,32,16,Rayadura,495.49,120.18
-L0135,2025-05-15,Línea 2,M03,Noche,Operador D,936,44,32,12,Mancha,501.59,120.22
-L0136,2025-05-16,Línea 1,M02,Tarde,Operador F,1018,31,22,9,Contaminación,505.77,120.26
-L0137,2025-05-17,Línea 1,M02,Tarde,Operador B,995,30,19,11,Mancha,501.8,121.53
-L0138,2025-05-18,Línea 2,M03,Noche,Operador D,979,43,31,12,Mancha,495.07,120.69
-L0139,2025-05-19,Línea 2,M03,Tarde,Operador B,954,31,20,11,Largo fuera de rango,501.47,120.32
-L0140,2025-05-20,Línea 1,M02,Tarde,Operador A,1014,47,31,16,Rayadura,499.21,119.87
-L0141,2025-05-21,Línea 1,M01,Mañana,Operador C,1049,33,24,9,Largo fuera de rango,503.69,119.57
-L0142,2025-05-22,Línea 1,M01,Noche,Operador B,1074,49,29,20,Contaminación,502.96,119.74
-L0143,2025-05-23,Línea 1,M01,Noche,Operador A,976,41,28,13,Largo fuera de rango,503.15,121.09
-L0144,2025-05-24,Línea 1,M01,Tarde,Operador B,1039,53,35,18,Rayadura,500.98,121.12
-L0145,2025-05-25,Línea 1,M02,Mañana,Operador E,1032,37,29,8,Largo fuera de rango,497.68,119.31
-L0146,2025-05-26,Línea 2,M03,Tarde,Operador D,996,33,24,9,Mancha,495.92,121.15
-L0147,2025-05-27,Línea 2,M04,Tarde,Operador A,1093,47,30,17,Peso fuera de rango,498.41,121.17
-L0148,2025-05-28,Línea 1,M02,Mañana,Operador F,1003,40,27,13,Contaminación,497.87,120.37
-L0149,2025-05-29,Línea 2,M04,Tarde,Operador D,948,41,27,14,Mancha,502.21,119.99
-L0150,2025-05-30,Línea 1,M02,Mañana,Operador F,993,31,24,7,Mancha,501.12,120.45
-L0151,2025-05-31,Línea 1,M02,Noche,Operador E,1031,47,33,14,Mancha,500.45,119.51
-L0152,2025-06-01,Línea 1,M01,Noche,Operador D,957,41,26,15,Peso fuera de rango,501.78,119.05
-L0153,2025-06-02,Línea 1,M02,Mañana,Operador B,1053,40,29,11,Mancha,499.89,121.6
-L0154,2025-06-03,Línea 1,M01,Tarde,Operador A,1021,42,32,10,Peso fuera de rango,498.21,121.05
-L0155,2025-06-04,Línea 2,M04,Mañana,Operador F,949,62,44,18,Mancha,498.97,118.29
-L0156,2025-06-05,Línea 1,M01,Tarde,Operador C,1012,38,24,14,Largo fuera de rango,497.67,121.21
-L0157,2025-06-06,Línea 1,M02,Mañana,Operador B,1009,39,23,16,Mancha,497.99,120.44
-L0158,2025-06-07,Línea 1,M01,Mañana,Operador B,971,49,31,18,Peso fuera de rango,498.18,120.62
-L0159,2025-06-08,Línea 1,M02,Noche,Operador B,984,41,26,15,Mancha,498.41,119.07
-L0160,2025-06-09,Línea 2,M03,Mañana,Operador C,936,34,22,12,Rayadura,495.77,118.99
-L0161,2025-06-10,Línea 2,M03,Tarde,Operador D,911,33,23,10,Largo fuera de rango,497.64,119.9
-L0162,2025-06-11,Línea 1,M02,Mañana,Operador C,1037,40,28,12,Largo fuera de rango,499.57,119.42
-L0163,2025-06-12,Línea 1,M02,Mañana,Operador C,1012,53,35,18,Peso fuera de rango,502.83,121.01
-L0164,2025-06-13,Línea 1,M01,Mañana,Operador B,1054,39,23,16,Largo fuera de rango,500.72,119.8
-L0165,2025-06-14,Línea 1,M01,Mañana,Operador A,972,28,17,11,Rayadura,498.1,120.46
-L0166,2025-06-15,Línea 2,M04,Tarde,Operador E,1047,67,43,24,Mancha,500.34,120.86
-L0167,2025-06-16,Línea 2,M03,Mañana,Operador D,1005,34,20,14,Peso fuera de rango,501.83,120.01
-L0168,2025-06-17,Línea 1,M02,Noche,Operador E,1020,52,40,12,Mancha,500.13,119.9
-L0169,2025-06-18,Línea 2,M04,Noche,Operador C,972,50,32,18,Contaminación,501.28,120.1
-L0170,2025-06-19,Línea 1,M02,Tarde,Operador C,995,36,22,14,Mancha,498.25,119.93
-L0171,2025-06-20,Línea 2,M04,Tarde,Operador F,1018,61,42,19,Peso fuera de rango,497.58,119.78
-L0172,2025-06-21,Línea 1,M01,Noche,Operador E,978,39,28,11,Largo fuera de rango,500.62,119.89
-L0173,2025-06-22,Línea 1,M02,Noche,Operador A,937,32,19,13,Mancha,501.03,119.63
-L0174,2025-06-23,Línea 2,M03,Noche,Operador B,1008,58,39,19,Peso fuera de rango,499.99,121.52
-L0175,2025-06-24,Línea 1,M01,Mañana,Operador D,1040,42,33,9,Contaminación,500.32,119.53
-L0176,2025-06-25,Línea 2,M03,Noche,Operador B,946,44,35,9,Contaminación,502.22,120.08
-L0177,2025-06-26,Línea 2,M04,Noche,Operador D,1002,64,48,16,Peso fuera de rango,499.68,119.69
-L0178,2025-06-27,Línea 2,M03,Noche,Operador F,947,38,28,10,Mancha,497.46,119.5
-L0179,2025-06-28,Línea 1,M01,Noche,Operador D,1043,44,29,15,Peso fuera de rango,497.36,119.16
-L0180,2025-06-29,Línea 1,M01,Tarde,Operador A,1033,37,26,11,Peso fuera de rango,496.76,121.36
-L0181,2025-06-30,Línea 1,M02,Noche,Operador F,946,49,34,15,Rayadura,497.54,120.55
-L0182,2025-07-01,Línea 2,M03,Noche,Operador F,936,45,35,10,Mancha,500.08,119.76
-L0183,2025-07-02,Línea 2,M04,Noche,Operador A,986,52,40,12,Peso fuera de rango,500.51,119.76
-L0184,2025-07-03,Línea 1,M01,Mañana,Operador E,923,46,30,16,Largo fuera de rango,495.12,118.42
-L0185,2025-07-04,Línea 2,M03,Tarde,Operador B,1006,41,22,19,Contaminación,498.83,120.6
-L0186,2025-07-05,Línea 2,M03,Mañana,Operador B,1016,45,33,12,Mancha,501.6,118.8
-L0187,2025-07-06,Línea 2,M03,Mañana,Operador B,1001,36,27,9,Mancha,499.98,119.76
-L0188,2025-07-07,Línea 2,M03,Mañana,Operador A,972,29,23,6,Peso fuera de rango,501.04,119.13
-L0189,2025-07-08,Línea 1,M01,Tarde,Operador E,1011,37,22,15,Rayadura,500.59,120.7
-L0190,2025-07-09,Línea 2,M04,Mañana,Operador E,952,64,47,17,Rayadura,502.96,118.7
-L0191,2025-07-10,Línea 2,M03,Mañana,Operador C,981,34,23,11,Peso fuera de rango,499.9,118.75
-L0192,2025-07-11,Línea 1,M02,Mañana,Operador A,968,35,25,10,Rayadura,498.88,119.14
-L0193,2025-07-12,Línea 2,M04,Tarde,Operador B,1024,44,26,18,Mancha,499.77,119.62
-L0194,2025-07-13,Línea 1,M02,Mañana,Operador F,1020,32,22,10,Peso fuera de rango,498.46,120.82
-L0195,2025-07-14,Línea 2,M03,Tarde,Operador E,956,31,23,8,Contaminación,496.86,120.69
-L0196,2025-07-15,Línea 2,M03,Tarde,Operador B,983,47,35,12,Largo fuera de rango,499.32,119.07
-L0197,2025-07-16,Línea 2,M03,Tarde,Operador D,949,36,19,17,Mancha,494.89,119.4
-L0198,2025-07-17,Línea 2,M03,Mañana,Operador A,1080,47,34,13,Largo fuera de rango,499.94,119.18
-L0199,2025-07-18,Línea 1,M01,Noche,Operador F,988,39,27,12,Mancha,499.41,119.41
-L0200,2025-07-19,Línea 1,M01,Tarde,Operador B,996,31,22,9,Mancha,500.26,121.36
-L0201,2025-07-20,Línea 1,M01,Mañana,Operador D,924,33,23,10,Rayadura,498.6,120.02
-L0202,2025-07-21,Línea 2,M04,Mañana,Operador D,988,44,31,13,Mancha,500.38,120.44
-L0203,2025-07-22,Línea 1,M01,Noche,Operador D,1003,45,31,14,Largo fuera de rango,505.54,119.64
-L0204,2025-07-23,Línea 1,M01,Noche,Operador D,1010,44,37,7,Rayadura,502.97,120.5
-L0205,2025-07-24,Línea 1,M01,Mañana,Operador F,1026,42,25,17,Mancha,499.93,119.47
-L0206,2025-07-25,Línea 2,M03,Mañana,Operador F,1000,32,20,12,Rayadura,498.2,121.05
-L0207,2025-07-26,Línea 1,M01,Noche,Operador B,984,52,35,17,Mancha,497.52,120.24
-L0208,2025-07-27,Línea 2,M03,Tarde,Operador C,1076,33,20,13,Rayadura,500.64,120.08
-L0209,2025-07-28,Línea 1,M01,Noche,Operador A,951,44,29,15,Mancha,501.46,119.61
-L0210,2025-07-29,Línea 1,M02,Mañana,Operador E,956,35,24,11,Mancha,502.41,119.97
-L0211,2025-07-30,Línea 1,M02,Tarde,Operador B,986,37,28,9,Mancha,498.57,118.97
-L0212,2025-07-31,Línea 2,M03,Tarde,Operador C,913,41,34,7,Mancha,499.8,120.82
-L0213,2025-08-01,Línea 1,M02,Mañana,Operador D,981,37,24,13,Largo fuera de rango,500.33,120.66
-L0214,2025-08-02,Línea 1,M02,Noche,Operador E,1034,42,35,7,Peso fuera de rango,498.72,121.12
-L0215,2025-08-03,Línea 2,M04,Tarde,Operador A,1008,63,45,18,Mancha,500.62,119.79
-L0216,2025-08-04,Línea 1,M02,Mañana,Operador B,1008,31,22,9,Rayadura,500.17,119.98
-L0217,2025-08-05,Línea 1,M01,Noche,Operador C,979,47,35,12,Contaminación,499.05,120.26
-L0218,2025-08-06,Línea 2,M04,Mañana,Operador A,1009,48,33,15,Mancha,498.57,122.16
-L0219,2025-08-07,Línea 1,M02,Tarde,Operador E,972,33,25,8,Peso fuera de rango,497.88,119.14
-L0220,2025-08-08,Línea 1,M02,Mañana,Operador B,1013,32,26,6,Contaminación,501.45,121.04
-L0221,2025-08-09,Línea 1,M01,Noche,Operador F,1049,41,24,17,Mancha,497.87,119.14
-L0222,2025-08-10,Línea 2,M03,Mañana,Operador B,1013,38,31,7,Mancha,498.47,121.7
-L0223,2025-08-11,Línea 2,M04,Tarde,Operador A,959,50,36,14,Rayadura,501.22,119.26
-L0224,2025-08-12,Línea 1,M01,Tarde,Operador B,1006,40,27,13,Rayadura,497.97,119.57
-L0225,2025-08-13,Línea 2,M04,Mañana,Operador C,1024,51,34,17,Contaminación,502.63,121.42
-L0226,2025-08-14,Línea 1,M02,Mañana,Operador A,1000,28,19,9,Peso fuera de rango,498.01,119.12
-L0227,2025-08-15,Línea 1,M01,Mañana,Operador D,1023,31,23,8,Peso fuera de rango,497.69,119.16
-L0228,2025-08-16,Línea 1,M02,Noche,Operador E,963,41,27,14,Peso fuera de rango,502.36,120.39
-L0229,2025-08-17,Línea 2,M03,Mañana,Operador E,970,30,17,13,Peso fuera de rango,501.09,118.09
-L0230,2025-08-18,Línea 2,M03,Mañana,Operador B,1013,47,37,10,Rayadura,498.91,120.38
-L0231,2025-08-19,Línea 1,M01,Mañana,Operador B,991,37,27,10,Mancha,500.32,117.55
-L0232,2025-08-20,Línea 1,M01,Mañana,Operador B,978,38,30,8,Rayadura,500.91,120.56
-L0233,2025-08-21,Línea 2,M03,Tarde,Operador D,936,38,25,13,Mancha,502.31,120.74
-L0234,2025-08-22,Línea 2,M04,Noche,Operador F,979,59,38,21,Mancha,498.31,120.3
-L0235,2025-08-23,Línea 1,M02,Noche,Operador C,1000,56,39,17,Largo fuera de rango,501.24,120.29
-L0236,2025-08-24,Línea 2,M03,Noche,Operador C,1089,44,32,12,Mancha,499.43,118.09
-L0237,2025-08-25,Línea 1,M01,Noche,Operador F,1058,44,28,16,Mancha,500.65,119.97
-L0238,2025-08-26,Línea 1,M01,Mañana,Operador E,1110,36,29,7,Rayadura,499.52,118.36
-L0239,2025-08-27,Línea 2,M03,Mañana,Operador D,961,40,31,9,Rayadura,501.03,120.5
-L0240,2025-08-28,Línea 2,M04,Tarde,Operador F,952,50,37,13,Mancha,503.33,121.26
-L0241,2025-08-29,Línea 2,M04,Tarde,Operador C,1019,44,33,11,Rayadura,497.19,120.63
-L0242,2025-08-30,Línea 2,M03,Mañana,Operador B,995,31,20,11,Mancha,497.65,120.03
-L0243,2025-08-31,Línea 1,M02,Mañana,Operador E,1031,39,28,11,Rayadura,498.9,119.85
-L0244,2025-09-01,Línea 2,M04,Noche,Operador D,982,67,47,20,Peso fuera de rango,495.28,120.23
-L0245,2025-09-02,Línea 2,M04,Noche,Operador F,978,54,40,14,Peso fuera de rango,502.17,121.09
-L0246,2025-09-03,Línea 2,M04,Mañana,Operador C,1024,41,29,12,Rayadura,498.31,120.08
-L0247,2025-09-04,Línea 1,M01,Mañana,Operador C,976,33,26,7,Mancha,497.45,120.08
-L0248,2025-09-05,Línea 2,M04,Noche,Operador E,960,67,41,26,Largo fuera de rango,500.83,119.22
-L0249,2025-09-06,Línea 2,M03,Noche,Operador E,1104,44,26,18,Largo fuera de rango,498.06,119.68
-L0250,2025-09-07,Línea 2,M04,Tarde,Operador F,983,61,47,14,Mancha,496.12,119.88
+lote,fecha,linea,maquina,equipo,turno,operador,unidades_producidas,unidades_defectuosas,unidades_reproceso,unidades_scrap,defecto_tipo,peso_promedio,longitud_promedio
+L0001,2025-01-01,Línea 1,M04,L1-M04,Tarde,Operador C,1030,57,33,24,Peso fuera de rango,499.21,119.99
+L0002,2025-01-02,Línea 2,M02,L2-M02,Tarde,Operador C,1031,33,23,10,Mancha,501.6,119.96
+L0003,2025-01-03,Línea 1,M04,L1-M04,Noche,Operador C,1048,62,49,13,Mancha,501.08,121.71
+L0004,2025-01-04,Línea 1,M04,L1-M04,Tarde,Operador B,967,42,33,9,Rayadura,497.94,120.52
+L0005,2025-01-05,Línea 2,M02,L2-M02,Mañana,Operador E,953,38,24,14,Rayadura,499.95,120.7
+L0006,2025-01-06,Línea 2,M01,L2-M01,Noche,Operador B,1002,39,30,9,Mancha,497.24,120.77
+L0007,2025-01-07,Línea 2,M03,L2-M03,Mañana,Operador E,1006,47,33,14,Mancha,498.92,118.98
+L0008,2025-01-08,Línea 1,M01,L1-M01,Noche,Operador A,1019,46,32,14,Peso fuera de rango,501.56,119.75
+L0009,2025-01-09,Línea 1,M04,L1-M04,Mañana,Operador B,985,46,33,13,Mancha,500.03,120.38
+L0010,2025-01-10,Línea 1,M03,L1-M03,Tarde,Operador C,996,38,28,10,Mancha,496.69,119.2
+L0011,2025-01-11,Línea 1,M04,L1-M04,Tarde,Operador E,984,58,36,22,Rayadura,495.68,120.35
+L0012,2025-01-12,Línea 2,M03,L2-M03,Tarde,Operador B,942,35,29,6,Rayadura,501.49,120.29
+L0013,2025-01-13,Línea 2,M01,L2-M01,Mañana,Operador D,974,51,37,14,Rayadura,498.84,118.82
+L0014,2025-01-14,Línea 1,M02,L1-M02,Tarde,Operador E,1033,51,36,15,Mancha,497.97,119.67
+L0015,2025-01-15,Línea 2,M02,L2-M02,Mañana,Operador A,1042,38,25,13,Mancha,500.1,121.41
+L0016,2025-01-16,Línea 2,M04,L2-M04,Mañana,Operador A,980,58,40,18,Rayadura,497.35,120.67
+L0017,2025-01-17,Línea 2,M02,L2-M02,Mañana,Operador F,1015,35,20,15,Mancha,498.26,119.02
+L0018,2025-01-18,Línea 2,M04,L2-M04,Mañana,Operador F,1063,50,33,17,Peso fuera de rango,502.17,120.34
+L0019,2025-01-19,Línea 2,M03,L2-M03,Tarde,Operador B,951,42,27,15,Mancha,498.44,121.17
+L0020,2025-01-20,Línea 2,M04,L2-M04,Mañana,Operador B,964,44,37,7,Mancha,499.63,120.52
+L0021,2025-01-21,Línea 2,M01,L2-M01,Mañana,Operador D,966,28,18,10,Mancha,498.19,119.74
+L0022,2025-01-22,Línea 1,M02,L1-M02,Tarde,Operador D,1053,38,32,6,Rayadura,500.44,119.13
+L0023,2025-01-23,Línea 2,M01,L2-M01,Noche,Operador C,1100,61,40,21,Mancha,502.41,119.42
+L0024,2025-01-24,Línea 1,M04,L1-M04,Tarde,Operador B,993,57,39,18,Largo fuera de rango,496.33,121.7
+L0025,2025-01-25,Línea 1,M01,L1-M01,Noche,Operador E,1073,51,35,16,Mancha,504.32,119.21
+L0026,2025-01-26,Línea 2,M01,L2-M01,Noche,Operador F,1017,53,41,12,Mancha,498.73,120.19
+L0027,2025-01-27,Línea 2,M01,L2-M01,Tarde,Operador D,1040,47,33,14,Largo fuera de rango,497.6,120.25
+L0028,2025-01-28,Línea 1,M01,L1-M01,Noche,Operador B,1083,46,37,9,Rayadura,500.65,119.11
+L0029,2025-01-29,Línea 1,M04,L1-M04,Mañana,Operador A,1019,47,29,18,Contaminación,498.82,120.21
+L0030,2025-01-30,Línea 2,M03,L2-M03,Tarde,Operador E,995,42,31,11,Mancha,495.01,120.26
+L0031,2025-01-31,Línea 2,M01,L2-M01,Tarde,Operador C,1034,45,30,15,Mancha,502.65,120.47
+L0032,2025-02-01,Línea 2,M02,L2-M02,Noche,Operador B,1017,36,23,13,Rayadura,499.57,119.44
+L0033,2025-02-02,Línea 1,M03,L1-M03,Mañana,Operador B,1031,44,26,18,Mancha,497.07,119.59
+L0034,2025-02-03,Línea 1,M03,L1-M03,Tarde,Operador E,972,37,26,11,Rayadura,494.27,120.24
+L0035,2025-02-04,Línea 2,M04,L2-M04,Noche,Operador E,1064,69,53,16,Peso fuera de rango,501.52,119.54
+L0036,2025-02-05,Línea 1,M03,L1-M03,Noche,Operador C,1009,53,38,15,Mancha,499.62,120.31
+L0037,2025-02-06,Línea 1,M04,L1-M04,Tarde,Operador C,994,65,46,19,Rayadura,503.32,120.69
+L0038,2025-02-07,Línea 2,M04,L2-M04,Tarde,Operador A,1093,58,40,18,Peso fuera de rango,499.67,121.05
+L0039,2025-02-08,Línea 2,M04,L2-M04,Tarde,Operador B,935,41,25,16,Peso fuera de rango,495.87,118.15
+L0040,2025-02-09,Línea 1,M04,L1-M04,Noche,Operador B,1018,52,35,17,Peso fuera de rango,501.9,120.18
+L0041,2025-02-10,Línea 2,M01,L2-M01,Mañana,Operador B,992,46,28,18,Peso fuera de rango,498.74,119.91
+L0042,2025-02-11,Línea 1,M01,L1-M01,Noche,Operador D,948,40,32,8,Largo fuera de rango,499.29,120.16
+L0043,2025-02-12,Línea 2,M03,L2-M03,Noche,Operador F,997,45,30,15,Peso fuera de rango,497.31,119.52
+L0044,2025-02-13,Línea 2,M03,L2-M03,Mañana,Operador B,985,42,32,10,Contaminación,497.76,120.34
+L0045,2025-02-14,Línea 1,M03,L1-M03,Noche,Operador D,1014,62,43,19,Peso fuera de rango,499.17,120.89
+L0046,2025-02-15,Línea 1,M01,L1-M01,Tarde,Operador D,1013,33,26,7,Mancha,502.69,119.32
+L0047,2025-02-16,Línea 2,M03,L2-M03,Tarde,Operador D,1012,31,21,10,Mancha,498.25,119.77
+L0048,2025-02-17,Línea 1,M02,L1-M02,Mañana,Operador B,961,36,25,11,Rayadura,500.02,122.08
+L0049,2025-02-18,Línea 2,M03,L2-M03,Noche,Operador E,1003,62,43,19,Peso fuera de rango,500.48,119.32
+L0050,2025-02-19,Línea 1,M02,L1-M02,Mañana,Operador A,1026,42,32,10,Mancha,495.42,119.73
+L0051,2025-02-20,Línea 1,M04,L1-M04,Noche,Operador F,1054,61,47,14,Rayadura,498.64,121.94
+L0052,2025-02-21,Línea 1,M04,L1-M04,Tarde,Operador B,1018,57,39,18,Mancha,501.98,120.28
+L0053,2025-02-22,Línea 1,M01,L1-M01,Noche,Operador A,1035,36,28,8,Rayadura,498.89,121.16
+L0054,2025-02-23,Línea 2,M04,L2-M04,Mañana,Operador C,1062,60,37,23,Mancha,495.49,120.51
+L0055,2025-02-24,Línea 1,M02,L1-M02,Noche,Operador D,904,41,26,15,Peso fuera de rango,499.55,119.8
+L0056,2025-02-25,Línea 2,M04,L2-M04,Tarde,Operador A,959,46,29,17,Rayadura,500.14,121.63
+L0057,2025-02-26,Línea 1,M03,L1-M03,Tarde,Operador F,969,35,21,14,Peso fuera de rango,498.09,120.72
+L0058,2025-02-27,Línea 1,M01,L1-M01,Mañana,Operador A,973,31,21,10,Mancha,500.66,119.28
+L0059,2025-02-28,Línea 2,M03,L2-M03,Noche,Operador F,1053,62,39,23,Mancha,504.39,119.06
+L0060,2025-03-01,Línea 2,M03,L2-M03,Noche,Operador D,1064,58,47,11,Peso fuera de rango,498.1,120.65
+L0061,2025-03-02,Línea 2,M02,L2-M02,Mañana,Operador F,1020,48,33,15,Largo fuera de rango,500.75,120.61
+L0062,2025-03-03,Línea 1,M01,L1-M01,Mañana,Operador C,1021,35,23,12,Peso fuera de rango,497.98,118.97
+L0063,2025-03-04,Línea 1,M04,L1-M04,Tarde,Operador A,975,46,31,15,Mancha,498.67,119.67
+L0064,2025-03-05,Línea 2,M03,L2-M03,Mañana,Operador B,903,36,27,9,Rayadura,498.62,119.77
+L0065,2025-03-06,Línea 2,M04,L2-M04,Noche,Operador B,1023,64,42,22,Contaminación,499.83,119.73
+L0066,2025-03-07,Línea 2,M01,L2-M01,Mañana,Operador D,930,33,24,9,Mancha,500.87,120.26
+L0067,2025-03-08,Línea 1,M02,L1-M02,Noche,Operador D,1048,48,31,17,Rayadura,499.14,119.93
+L0068,2025-03-09,Línea 1,M01,L1-M01,Tarde,Operador B,1019,43,32,11,Mancha,505.96,120.34
+L0069,2025-03-10,Línea 1,M04,L1-M04,Tarde,Operador E,1032,52,41,11,Peso fuera de rango,498.94,120.25
+L0070,2025-03-11,Línea 2,M02,L2-M02,Mañana,Operador A,909,38,29,9,Mancha,497.11,119.84
+L0071,2025-03-12,Línea 2,M02,L2-M02,Mañana,Operador A,958,46,31,15,Mancha,500.8,119.82
+L0072,2025-03-13,Línea 1,M02,L1-M02,Mañana,Operador A,1028,34,25,9,Rayadura,499.12,119.18
+L0073,2025-03-14,Línea 2,M02,L2-M02,Mañana,Operador B,908,38,22,16,Mancha,496.6,120.36
+L0074,2025-03-15,Línea 1,M01,L1-M01,Tarde,Operador A,992,41,32,9,Peso fuera de rango,502.5,120.95
+L0075,2025-03-16,Línea 1,M03,L1-M03,Noche,Operador F,1003,34,26,8,Peso fuera de rango,497.77,120.01
+L0076,2025-03-17,Línea 1,M04,L1-M04,Tarde,Operador C,1081,67,44,23,Peso fuera de rango,503.12,120.51
+L0077,2025-03-18,Línea 2,M02,L2-M02,Noche,Operador A,1013,56,43,13,Peso fuera de rango,503.6,121.38
+L0078,2025-03-19,Línea 2,M02,L2-M02,Mañana,Operador F,1054,44,29,15,Mancha,499.55,118.96
+L0079,2025-03-20,Línea 1,M01,L1-M01,Noche,Operador A,1071,46,28,18,Largo fuera de rango,499.49,119.13
+L0080,2025-03-21,Línea 1,M02,L1-M02,Noche,Operador A,949,43,27,16,Mancha,502.49,120.85
+L0081,2025-03-22,Línea 2,M04,L2-M04,Noche,Operador B,966,53,36,17,Peso fuera de rango,502.15,119.89
+L0082,2025-03-23,Línea 2,M04,L2-M04,Mañana,Operador C,1008,46,32,14,Rayadura,497.83,120.25
+L0083,2025-03-24,Línea 2,M02,L2-M02,Mañana,Operador E,1010,36,21,15,Mancha,494.11,118.51
+L0084,2025-03-25,Línea 2,M04,L2-M04,Tarde,Operador C,995,62,48,14,Largo fuera de rango,497.52,119.28
+L0085,2025-03-26,Línea 2,M01,L2-M01,Mañana,Operador B,1073,33,24,9,Peso fuera de rango,499.17,120.1
+L0086,2025-03-27,Línea 2,M02,L2-M02,Tarde,Operador D,1034,45,27,18,Rayadura,501.67,120.02
+L0087,2025-03-28,Línea 1,M02,L1-M02,Noche,Operador A,1013,49,29,20,Mancha,496.39,119.95
+L0088,2025-03-29,Línea 2,M04,L2-M04,Tarde,Operador B,1033,55,39,16,Mancha,500.1,119.19
+L0089,2025-03-30,Línea 1,M04,L1-M04,Mañana,Operador D,924,49,36,13,Peso fuera de rango,499.93,120.18
+L0090,2025-03-31,Línea 1,M04,L1-M04,Tarde,Operador F,953,50,37,13,Rayadura,493.75,118.64
+L0091,2025-04-01,Línea 2,M03,L2-M03,Tarde,Operador D,983,43,27,16,Rayadura,497.24,120.38
+L0092,2025-04-02,Línea 2,M02,L2-M02,Noche,Operador C,1004,55,33,22,Mancha,498.84,118.98
+L0093,2025-04-03,Línea 1,M02,L1-M02,Mañana,Operador F,969,29,22,7,Peso fuera de rango,502.89,121.15
+L0094,2025-04-04,Línea 2,M03,L2-M03,Noche,Operador B,924,39,24,15,Peso fuera de rango,498.98,121.51
+L0095,2025-04-05,Línea 1,M03,L1-M03,Tarde,Operador D,990,39,22,17,Rayadura,504.12,120.25
+L0096,2025-04-06,Línea 1,M03,L1-M03,Noche,Operador B,996,44,27,17,Mancha,501.23,120.96
+L0097,2025-04-07,Línea 2,M02,L2-M02,Tarde,Operador D,1013,46,35,11,Largo fuera de rango,496.49,119.43
+L0098,2025-04-08,Línea 2,M02,L2-M02,Mañana,Operador E,1089,39,28,11,Peso fuera de rango,499.31,118.91
+L0099,2025-04-09,Línea 1,M02,L1-M02,Noche,Operador A,1036,49,33,16,Rayadura,501.54,119.2
+L0100,2025-04-10,Línea 1,M03,L1-M03,Noche,Operador C,983,60,45,15,Peso fuera de rango,500.94,120.51
+L0101,2025-04-11,Línea 2,M02,L2-M02,Mañana,Operador F,987,41,24,17,Rayadura,502.69,119.91
+L0102,2025-04-12,Línea 2,M03,L2-M03,Mañana,Operador E,1004,53,36,17,Mancha,498.36,120.51
+L0103,2025-04-13,Línea 1,M01,L1-M01,Noche,Operador A,1026,44,33,11,Peso fuera de rango,495.86,119.16
+L0104,2025-04-14,Línea 2,M03,L2-M03,Mañana,Operador A,989,40,27,13,Largo fuera de rango,500.42,120.49
+L0105,2025-04-15,Línea 2,M03,L2-M03,Noche,Operador F,912,43,32,11,Contaminación,499.91,119.6
+L0106,2025-04-16,Línea 2,M01,L2-M01,Tarde,Operador C,999,50,37,13,Rayadura,501.15,120.08
+L0107,2025-04-17,Línea 2,M02,L2-M02,Noche,Operador B,978,57,33,24,Peso fuera de rango,498.89,120.09
+L0108,2025-04-18,Línea 1,M02,L1-M02,Tarde,Operador C,1058,40,29,11,Mancha,498.86,120.91
+L0109,2025-04-19,Línea 2,M01,L2-M01,Tarde,Operador A,957,29,23,6,Peso fuera de rango,496.61,119.82
+L0110,2025-04-20,Línea 1,M04,L1-M04,Mañana,Operador B,1009,57,35,22,Contaminación,500.61,119.88
+L0111,2025-04-21,Línea 2,M04,L2-M04,Mañana,Operador B,1004,56,36,20,Mancha,498.71,119.52
+L0112,2025-04-22,Línea 1,M03,L1-M03,Mañana,Operador E,1007,35,23,12,Contaminación,503.1,120.9
+L0113,2025-04-23,Línea 1,M02,L1-M02,Mañana,Operador A,1020,39,25,14,Largo fuera de rango,503.26,120.67
+L0114,2025-04-24,Línea 1,M03,L1-M03,Noche,Operador E,953,62,39,23,Mancha,499.1,120.28
+L0115,2025-04-25,Línea 1,M01,L1-M01,Tarde,Operador A,1000,33,21,12,Mancha,499.39,118.32
+L0116,2025-04-26,Línea 1,M04,L1-M04,Tarde,Operador D,972,49,32,17,Mancha,500.09,119.93
+L0117,2025-04-27,Línea 2,M04,L2-M04,Noche,Operador C,907,60,40,20,Mancha,500.58,119.69
+L0118,2025-04-28,Línea 1,M01,L1-M01,Mañana,Operador E,1007,40,27,13,Mancha,496.23,119.21
+L0119,2025-04-29,Línea 2,M03,L2-M03,Tarde,Operador E,1072,42,29,13,Rayadura,499.11,119.2
+L0120,2025-04-30,Línea 1,M04,L1-M04,Mañana,Operador E,969,57,40,17,Mancha,502.14,119.36
+L0121,2025-05-01,Línea 2,M01,L2-M01,Tarde,Operador A,944,48,37,11,Largo fuera de rango,503.23,120.81
+L0122,2025-05-02,Línea 2,M04,L2-M04,Tarde,Operador A,1077,54,36,18,Mancha,496.75,118.94
+L0123,2025-05-03,Línea 1,M02,L1-M02,Tarde,Operador B,995,44,32,12,Mancha,502.22,119.61
+L0124,2025-05-04,Línea 2,M04,L2-M04,Mañana,Operador F,893,50,34,16,Mancha,502.71,119.96
+L0125,2025-05-05,Línea 1,M04,L1-M04,Noche,Operador D,1031,58,42,16,Largo fuera de rango,501.4,120.45
+L0126,2025-05-06,Línea 2,M01,L2-M01,Noche,Operador F,952,50,34,16,Mancha,500.83,120.49
+L0127,2025-05-07,Línea 2,M01,L2-M01,Noche,Operador F,959,50,36,14,Peso fuera de rango,498.37,118.55
+L0128,2025-05-08,Línea 2,M02,L2-M02,Noche,Operador B,1038,46,31,15,Rayadura,497.83,120.62
+L0129,2025-05-09,Línea 1,M02,L1-M02,Tarde,Operador A,980,42,32,10,Rayadura,499.88,119.91
+L0130,2025-05-10,Línea 2,M04,L2-M04,Noche,Operador F,1026,82,51,31,Rayadura,499.46,119.52
+L0131,2025-05-11,Línea 2,M03,L2-M03,Noche,Operador D,991,40,35,5,Peso fuera de rango,496.08,119.98
+L0132,2025-05-12,Línea 2,M02,L2-M02,Noche,Operador D,1006,44,31,13,Rayadura,501.51,118.74
+L0133,2025-05-13,Línea 2,M04,L2-M04,Noche,Operador B,961,43,34,9,Largo fuera de rango,501.28,119.8
+L0134,2025-05-14,Línea 2,M04,L2-M04,Noche,Operador D,1049,70,54,16,Peso fuera de rango,497.71,120.32
+L0135,2025-05-15,Línea 2,M02,L2-M02,Noche,Operador F,991,50,34,16,Rayadura,495.49,120.18
+L0136,2025-05-16,Línea 2,M02,L2-M02,Noche,Operador D,936,45,33,12,Mancha,501.59,120.22
+L0137,2025-05-17,Línea 1,M04,L1-M04,Tarde,Operador F,1018,64,45,19,Contaminación,505.77,120.26
+L0138,2025-05-18,Línea 1,M03,L1-M03,Tarde,Operador B,995,30,19,11,Mancha,501.8,121.53
+L0139,2025-05-19,Línea 2,M01,L2-M01,Noche,Operador D,979,44,31,13,Mancha,495.07,120.69
+L0140,2025-05-20,Línea 2,M01,L2-M01,Tarde,Operador B,954,33,22,11,Largo fuera de rango,501.47,120.32
+L0141,2025-05-21,Línea 1,M04,L1-M04,Tarde,Operador A,1014,56,40,16,Rayadura,495.62,120.08
+L0142,2025-05-22,Línea 1,M01,L1-M01,Noche,Operador A,1013,45,35,10,Mancha,504.66,120.48
+L0143,2025-05-23,Línea 1,M03,L1-M03,Tarde,Operador F,943,40,31,9,Mancha,498.55,120.56
+L0144,2025-05-24,Línea 1,M04,L1-M04,Mañana,Operador D,999,48,33,15,Largo fuera de rango,503.15,121.09
+L0145,2025-05-25,Línea 1,M01,L1-M01,Tarde,Operador B,1039,53,35,18,Rayadura,500.98,121.12
+L0146,2025-05-26,Línea 1,M03,L1-M03,Mañana,Operador E,1032,37,29,8,Largo fuera de rango,497.68,119.31
+L0147,2025-05-27,Línea 2,M02,L2-M02,Tarde,Operador D,996,30,20,10,Mancha,499.04,120.23
+L0148,2025-05-28,Línea 2,M04,L2-M04,Mañana,Operador C,987,44,28,16,Peso fuera de rango,498.41,121.17
+L0149,2025-05-29,Línea 1,M03,L1-M03,Mañana,Operador F,1003,40,27,13,Contaminación,497.87,120.37
+L0150,2025-05-30,Línea 2,M04,L2-M04,Tarde,Operador D,948,41,27,14,Mancha,502.21,119.99
+L0151,2025-05-31,Línea 1,M03,L1-M03,Mañana,Operador F,993,31,24,7,Mancha,501.12,120.45
+L0152,2025-06-01,Línea 1,M04,L1-M04,Noche,Operador E,1031,62,44,18,Mancha,500.45,119.51
+L0153,2025-06-02,Línea 1,M01,L1-M01,Noche,Operador D,957,41,26,15,Peso fuera de rango,501.78,119.05
+L0154,2025-06-03,Línea 1,M04,L1-M04,Mañana,Operador B,1053,54,39,15,Mancha,499.89,121.6
+L0155,2025-06-04,Línea 1,M02,L1-M02,Tarde,Operador A,1021,42,32,10,Peso fuera de rango,498.21,121.05
+L0156,2025-06-05,Línea 2,M03,L2-M03,Mañana,Operador F,949,48,34,14,Mancha,498.97,118.29
+L0157,2025-06-06,Línea 1,M02,L1-M02,Tarde,Operador C,1012,38,24,14,Largo fuera de rango,497.67,121.21
+L0158,2025-06-07,Línea 1,M04,L1-M04,Mañana,Operador B,1009,53,32,21,Mancha,497.99,120.44
+L0159,2025-06-08,Línea 1,M01,L1-M01,Mañana,Operador B,971,49,31,18,Peso fuera de rango,498.18,120.62
+L0160,2025-06-09,Línea 1,M04,L1-M04,Noche,Operador B,984,55,35,20,Mancha,498.41,119.07
+L0161,2025-06-10,Línea 2,M02,L2-M02,Mañana,Operador C,936,36,23,13,Rayadura,495.77,118.99
+L0162,2025-06-11,Línea 2,M01,L2-M01,Tarde,Operador D,911,35,24,11,Largo fuera de rango,497.64,119.9
+L0163,2025-06-12,Línea 1,M03,L1-M03,Mañana,Operador C,1037,40,28,12,Largo fuera de rango,499.57,119.42
+L0164,2025-06-13,Línea 1,M04,L1-M04,Mañana,Operador C,1012,71,47,24,Peso fuera de rango,502.83,121.01
+L0165,2025-06-14,Línea 1,M01,L1-M01,Mañana,Operador B,1054,39,23,16,Largo fuera de rango,500.72,119.8
+L0166,2025-06-15,Línea 1,M02,L1-M02,Mañana,Operador A,972,28,17,11,Rayadura,498.1,120.46
+L0167,2025-06-16,Línea 2,M03,L2-M03,Tarde,Operador E,1047,51,32,19,Mancha,500.34,120.86
+L0168,2025-06-17,Línea 2,M02,L2-M02,Mañana,Operador D,1005,36,21,15,Peso fuera de rango,501.83,120.01
+L0169,2025-06-18,Línea 1,M03,L1-M03,Noche,Operador E,1020,52,40,12,Mancha,500.13,119.9
+L0170,2025-06-19,Línea 2,M03,L2-M03,Noche,Operador C,972,63,42,21,Peso fuera de rango,498.81,118.75
+L0171,2025-06-20,Línea 1,M04,L1-M04,Tarde,Operador F,1030,66,48,18,Peso fuera de rango,504.5,120.95
+L0172,2025-06-21,Línea 1,M01,L1-M01,Tarde,Operador C,1000,38,28,10,Contaminación,500.34,120.36
+L0173,2025-06-22,Línea 1,M04,L1-M04,Mañana,Operador C,1039,53,35,18,Rayadura,503.07,119.49
+L0174,2025-06-23,Línea 1,M02,L1-M02,Noche,Operador F,1009,46,37,9,Peso fuera de rango,499.61,118.89
+L0175,2025-06-24,Línea 1,M03,L1-M03,Noche,Operador F,950,46,38,8,Contaminación,498.77,120.11
+L0176,2025-06-25,Línea 1,M03,L1-M03,Noche,Operador D,1076,45,29,16,Mancha,501.6,119.91
+L0177,2025-06-26,Línea 1,M04,L1-M04,Mañana,Operador F,976,58,43,15,Mancha,496.51,119.47
+L0178,2025-06-27,Línea 1,M04,L1-M04,Mañana,Operador A,1003,63,41,22,Peso fuera de rango,499.77,119.98
+L0179,2025-06-28,Línea 1,M03,L1-M03,Noche,Operador E,979,48,37,11,Peso fuera de rango,500.28,119.69
+L0180,2025-06-29,Línea 2,M01,L2-M01,Noche,Operador F,947,39,29,10,Mancha,497.46,119.5
+L0181,2025-06-30,Línea 1,M02,L1-M02,Noche,Operador D,1043,44,29,15,Peso fuera de rango,497.36,119.16
+L0182,2025-07-01,Línea 1,M02,L1-M02,Tarde,Operador A,1033,37,26,11,Peso fuera de rango,496.76,121.36
+L0183,2025-07-02,Línea 1,M03,L1-M03,Noche,Operador F,946,49,34,15,Rayadura,497.54,120.55
+L0184,2025-07-03,Línea 2,M02,L2-M02,Noche,Operador F,936,46,36,10,Mancha,500.08,119.76
+L0185,2025-07-04,Línea 2,M03,L2-M03,Noche,Operador A,986,41,32,9,Peso fuera de rango,500.51,119.76
+L0186,2025-07-05,Línea 1,M02,L1-M02,Mañana,Operador E,923,46,30,16,Largo fuera de rango,495.12,118.42
+L0187,2025-07-06,Línea 2,M02,L2-M02,Tarde,Operador B,1006,57,40,17,Largo fuera de rango,501.08,120.69
+L0188,2025-07-07,Línea 1,M04,L1-M04,Tarde,Operador F,990,61,44,17,Rayadura,501.45,120.07
+L0189,2025-07-08,Línea 2,M03,L2-M03,Tarde,Operador C,1059,47,36,11,Mancha,495.66,118.95
+L0190,2025-07-09,Línea 1,M01,L1-M01,Mañana,Operador E,955,34,26,8,Peso fuera de rango,499.25,120.54
+L0191,2025-07-10,Línea 1,M01,L1-M01,Noche,Operador D,993,28,19,9,Rayadura,497.29,121.13
+L0192,2025-07-11,Línea 1,M04,L1-M04,Tarde,Operador F,1006,47,33,14,Mancha,502.18,119.55
+L0193,2025-07-12,Línea 1,M03,L1-M03,Mañana,Operador D,957,32,23,9,Rayadura,495.93,120.58
+L0194,2025-07-13,Línea 1,M02,L1-M02,Tarde,Operador E,1004,32,22,10,Peso fuera de rango,496.1,120.43
+L0195,2025-07-14,Línea 1,M01,L1-M01,Noche,Operador C,954,48,36,12,Rayadura,501.13,119.64
+L0196,2025-07-15,Línea 1,M04,L1-M04,Tarde,Operador F,1042,67,55,12,Peso fuera de rango,498.83,120.35
+L0197,2025-07-16,Línea 1,M04,L1-M04,Mañana,Operador D,1022,40,27,13,Rayadura,502.56,119.75
+L0198,2025-07-17,Línea 2,M03,L2-M03,Noche,Operador A,1041,36,25,11,Mancha,497.94,119.19
+L0199,2025-07-18,Línea 1,M02,L1-M02,Noche,Operador B,931,48,30,18,Rayadura,497.1,119.46
+L0200,2025-07-19,Línea 2,M03,L2-M03,Tarde,Operador F,1003,43,29,14,Mancha,497.22,121.6
+L0201,2025-07-20,Línea 2,M04,L2-M04,Mañana,Operador B,928,38,24,14,Rayadura,496.39,119.77
+L0202,2025-07-21,Línea 1,M01,L1-M01,Tarde,Operador F,974,39,26,13,Mancha,500.6,119.93
+L0203,2025-07-22,Línea 1,M02,L1-M02,Noche,Operador C,990,51,35,16,Rayadura,501.92,118.49
+L0204,2025-07-23,Línea 1,M01,L1-M01,Tarde,Operador B,1019,42,29,13,Mancha,500.5,119.39
+L0205,2025-07-24,Línea 2,M02,L2-M02,Noche,Operador A,1015,47,32,15,Largo fuera de rango,504.94,119.64
+L0206,2025-07-25,Línea 1,M02,L1-M02,Noche,Operador D,1010,44,37,7,Rayadura,502.97,120.5
+L0207,2025-07-26,Línea 1,M02,L1-M02,Mañana,Operador F,1026,42,25,17,Mancha,499.93,119.47
+L0208,2025-07-27,Línea 2,M02,L2-M02,Mañana,Operador F,1000,32,20,12,Rayadura,498.2,121.05
+L0209,2025-07-28,Línea 1,M01,L1-M01,Noche,Operador B,984,52,35,17,Mancha,497.52,120.24
+L0210,2025-07-29,Línea 2,M02,L2-M02,Tarde,Operador C,1076,36,22,14,Rayadura,500.64,120.08
+L0211,2025-07-30,Línea 1,M02,L1-M02,Noche,Operador A,951,44,29,15,Mancha,501.46,119.61
+L0212,2025-07-31,Línea 1,M03,L1-M03,Mañana,Operador E,956,35,24,11,Mancha,502.41,119.97
+L0213,2025-08-01,Línea 1,M04,L1-M04,Tarde,Operador B,986,52,38,14,Mancha,498.57,118.97
+L0214,2025-08-02,Línea 2,M02,L2-M02,Tarde,Operador C,913,42,35,7,Mancha,499.8,120.82
+L0215,2025-08-03,Línea 1,M04,L1-M04,Mañana,Operador D,981,51,33,18,Largo fuera de rango,500.33,120.66
+L0216,2025-08-04,Línea 1,M04,L1-M04,Noche,Operador E,1034,88,50,38,Peso fuera de rango,495.71,119.43
+L0217,2025-08-05,Línea 1,M01,L1-M01,Noche,Operador E,979,45,32,13,Mancha,502.28,120.16
+L0218,2025-08-06,Línea 2,M02,L2-M02,Noche,Operador C,1002,45,32,13,Mancha,499.51,119.35
+L0219,2025-08-07,Línea 1,M02,L1-M02,Tarde,Operador D,1007,41,29,12,Largo fuera de rango,500.25,121.87
+L0220,2025-08-08,Línea 1,M04,L1-M04,Tarde,Operador F,968,49,37,12,Largo fuera de rango,503.15,119.92
+L0221,2025-08-09,Línea 1,M04,L1-M04,Noche,Operador A,1015,65,45,20,Largo fuera de rango,499.09,120.1
+L0222,2025-08-10,Línea 1,M02,L1-M02,Mañana,Operador D,966,45,34,11,Mancha,497.98,120.54
+L0223,2025-08-11,Línea 1,M02,L1-M02,Tarde,Operador A,962,31,17,14,Mancha,497.87,119.14
+L0224,2025-08-12,Línea 2,M02,L2-M02,Mañana,Operador B,1013,39,31,8,Mancha,498.47,121.7
+L0225,2025-08-13,Línea 2,M03,L2-M03,Tarde,Operador A,959,38,28,10,Rayadura,501.22,119.26
+L0226,2025-08-14,Línea 1,M02,L1-M02,Tarde,Operador B,1006,40,27,13,Rayadura,497.97,119.57
+L0227,2025-08-15,Línea 2,M04,L2-M04,Mañana,Operador C,1024,71,44,27,Peso fuera de rango,500.93,119.65
+L0228,2025-08-16,Línea 2,M03,L2-M03,Tarde,Operador F,1051,39,31,8,Peso fuera de rango,499.15,119.48
+L0229,2025-08-17,Línea 2,M04,L2-M04,Tarde,Operador D,969,47,29,18,Peso fuera de rango,500.61,119.14
+L0230,2025-08-18,Línea 2,M02,L2-M02,Noche,Operador E,963,39,25,14,Mancha,498.64,120.98
+L0231,2025-08-19,Línea 1,M03,L1-M03,Tarde,Operador D,1037,46,30,16,Mancha,499.86,120.93
+L0232,2025-08-20,Línea 2,M04,L2-M04,Mañana,Operador E,1027,46,34,12,Rayadura,500.02,120.87
+L0233,2025-08-21,Línea 2,M04,L2-M04,Tarde,Operador F,968,61,44,17,Mancha,500.92,119.83
+L0234,2025-08-22,Línea 2,M02,L2-M02,Tarde,Operador F,1016,38,30,8,Mancha,491.74,118.98
+L0235,2025-08-23,Línea 1,M01,L1-M01,Mañana,Operador D,920,33,26,7,Mancha,503.01,119.66
+L0236,2025-08-24,Línea 1,M03,L1-M03,Mañana,Operador A,1102,41,26,15,Mancha,498.91,120.3
+L0237,2025-08-25,Línea 1,M04,L1-M04,Noche,Operador C,1000,72,51,21,Largo fuera de rango,501.24,120.29
+L0238,2025-08-26,Línea 2,M02,L2-M02,Noche,Operador C,1089,45,33,12,Mancha,499.43,118.09
+L0239,2025-08-27,Línea 1,M01,L1-M01,Noche,Operador F,1058,44,28,16,Mancha,500.65,119.97
+L0240,2025-08-28,Línea 1,M01,L1-M01,Mañana,Operador E,1110,36,29,7,Rayadura,499.52,118.36
+L0241,2025-08-29,Línea 2,M01,L2-M01,Mañana,Operador D,961,42,33,9,Rayadura,501.03,120.5
+L0242,2025-08-30,Línea 2,M04,L2-M04,Tarde,Operador F,952,52,38,14,Mancha,503.33,121.26
+L0243,2025-08-31,Línea 2,M04,L2-M04,Tarde,Operador C,1019,46,34,12,Rayadura,497.19,120.63
+L0244,2025-09-01,Línea 2,M01,L2-M01,Mañana,Operador B,995,33,22,11,Mancha,497.65,120.03
+L0245,2025-09-02,Línea 1,M04,L1-M04,Mañana,Operador E,1031,50,33,17,Contaminación,495.98,120.53
+L0246,2025-09-03,Línea 1,M02,L1-M02,Noche,Operador E,921,44,31,13,Rayadura,497.1,119.65
+L0247,2025-09-04,Línea 1,M02,L1-M02,Noche,Operador D,1023,46,34,12,Rayadura,494.07,119.57
+L0248,2025-09-05,Línea 1,M01,L1-M01,Tarde,Operador D,931,39,24,15,Peso fuera de rango,499.3,121.24
+L0249,2025-09-06,Línea 1,M01,L1-M01,Noche,Operador A,1045,47,33,14,Mancha,496.19,120.82
+L0250,2025-09-07,Línea 1,M04,L1-M04,Noche,Operador C,990,69,47,22,Contaminación,500.69,120.8
