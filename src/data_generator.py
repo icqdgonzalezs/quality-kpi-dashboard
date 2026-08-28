@@ -31,7 +31,6 @@ def load_plant_config() -> dict:
         return yaml.safe_load(file)
 
 # Turnos y operadores
-OPERATORS = [f"OP{i:03d}" for i in range(1, 25)]  # OP001..OP024
 
 # Periodo de generación: 12 meses laborables (solo días de semana)
 START_DATE = datetime(2024, 1, 1)
@@ -164,15 +163,17 @@ def generate_working_dates(start: datetime, end: datetime) -> list:
         current += timedelta(days=1)
     return dates
 
-def assign_operator(shift: str, rng: np.random.Generator) -> str:
-    """
-    Asigna un operador aleatorio a un turno. Se mantiene cierta consistencia:
-    los operadores de noche son un subconjunto fijo (OP017..OP024).
-    """
+def assign_operator(
+    shift: str,
+    rng: np.random.Generator,
+    operators: list[str],
+) -> str:
+    """Asigna un operador utilizando la configuración externa."""
     if shift == "Noche":
-        operator_pool = [f"OP{i:03d}" for i in range(17, 25)]
+        operator_pool = operators[16:24]
     else:
-        operator_pool = [f"OP{i:03d}" for i in range(1, 17)]
+        operator_pool = operators[:16]
+
     return rng.choice(operator_pool)
 
 def get_defect_rate(equipment_id: str, equipment_type: str, date: datetime,
@@ -215,6 +216,7 @@ def generate_production_data() -> pd.DataFrame:
 
     config = load_plant_config()
     shifts = config["shifts"]
+    operators = config["operators"]["ids"]
     equipment_master = create_equipment_master()
     working_days = generate_working_dates(START_DATE, END_DATE)
 
@@ -267,7 +269,7 @@ def generate_production_data() -> pd.DataFrame:
                 hour_map = {"Mañana": 9, "Tarde": 15, "Noche": 23}
                 timestamp = datetime(date.year, date.month, date.day, hour_map[shift])
 
-                operator_id = assign_operator(shift, rng)
+                operator_id = assign_operator(shift, rng, operators)
 
                 records.append({
                     "timestamp": timestamp,
