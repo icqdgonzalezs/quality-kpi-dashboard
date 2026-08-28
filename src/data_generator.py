@@ -15,64 +15,20 @@ import numpy as np
 import pandas as pd
 from pathlib import Path
 from datetime import datetime, timedelta
-import yaml
-import json
 
 # ----------------------------------------------------------------------
 # Constantes globales
 # ----------------------------------------------------------------------
 RANDOM_SEED = 42
 
-# Configuración de líneas y equipos (según documento maestro sección 3.1)
-PLANT_CONFIG = {
-    "L1": {
-        "name": "Conservas",
-        "equipment": [
-            ("L1-DEPAL-01", "DEPAL", "Despaletizador"),
-            ("L1-FEED-01", "FEED", "Alimentador de latas"),
-            ("L1-FILL-01", "FILL", "Relleno"),
-            ("L1-SEAM-01", "SEAM", "Costura"),
-            ("L1-WASH-01", "WASH", "Lavadora de latas"),
-            ("L1-XRAY-01", "XRAY", "Rayos X / Inspección"),
-            ("L1-CHECK-01", "CHECK", "Báscula de control"),
-            ("L1-LABEL-01", "LABEL", "Etiquetador / Codificador"),
-            ("L1-PACK-01", "PACK", "Empaquetador de cajas"),
-        ],
-        "products": ["PRD-A", "PRD-B", "PRD-C", "PRD-D"],
-    },
-    "L2": {
-        "name": "Embotellado",
-        "equipment": [
-            ("L2-RINSE-01", "RINSE", "Enjuagador"),
-            ("L2-FILL-01", "FILL", "Relleno"),
-            ("L2-CAPPER-01", "CAPPER", "Capper"),
-            ("L2-LABEL-01", "LABEL", "Etiquetador"),
-            ("L2-CHECK-01", "CHECK", "Báscula de control"),
-            ("L2-PACK-01", "PACK", "Empaquetador de cajas"),
-        ],
-        "products": ["PRD-A", "PRD-C", "PRD-E", "PRD-F"],
-    },
-    "L3": {
-        "name": "Bolsa",
-        "equipment": [
-            ("L3-FFS-01", "FFS", "Formar-Llenar-Sellar"),
-            ("L3-SEAL-01", "SEAL", "Inspección de sellos"),
-            ("L3-CHECK-01", "CHECK", "Báscula de control"),
-            ("L3-METAL-01", "METAL", "Detector de metales"),
-            ("L3-CART-01", "CART", "Cartoner"),
-        ],
-        "products": ["PRD-B", "PRD-D", "PRD-E"],
-    },
-    "L4": {
-        "name": "Envases Secundarios",
-        "equipment": [
-            ("L4-PACK-01", "PACK", "Empaquetador de cajas"),
-            ("L4-PAL-01", "PAL", "Paletizador"),
-            ("L4-WRAP-01", "WRAP", "Envolvedora de film estirable"),
-        ],
-        "products": ["PRD-A", "PRD-B", "PRD-C", "PRD-D", "PRD-E", "PRD-F"],
-    },
-}
+
+def load_plant_config() -> dict:
+    """Carga la configuración maestra de planta desde YAML."""
+    config_path = Path(__file__).resolve().parent.parent / "config" / "plant_config.yaml"
+
+    with config_path.open(encoding="utf-8") as file:
+        import yaml
+        return yaml.safe_load(file)
 
 # Activos críticos (10 equipos principales para monitoreo SPC)
 CRITICAL_ASSETS = [
@@ -183,21 +139,26 @@ PRODUCT_EFFECT = {
 }
 
 def create_equipment_master() -> pd.DataFrame:
-    """
-    Crea un DataFrame maestro con todos los equipos y sus atributos.
-    """
+    """Crea el maestro de equipos desde plant_config.yaml."""
+    config = load_plant_config()
+
     rows = []
-    for line_id, line_info in PLANT_CONFIG.items():
-        for eq_id, eq_type, eq_name in line_info["equipment"]:
+    for line_id, line_info in config["lines"].items():
+        for equipment in line_info["equipment"]:
             rows.append({
                 "line_id": line_id,
                 "line_name": line_info["name"],
-                "equipment_id": eq_id,
-                "equipment_type": eq_type,
-                "equipment_name": eq_name,
-                "is_critical": eq_id in CRITICAL_ASSETS,
-                "products": line_info["products"],
+                "equipment_id": equipment["id"],
+                "equipment_type": equipment["type"],
+                "equipment_name": equipment["name"],
+                "is_critical": equipment["critical"],
+                "products": [
+                    product_id
+                    for product_id, product in config["products"].items()
+                    if line_id in product["lines"]
+                ],
             })
+
     return pd.DataFrame(rows)
 
 def generate_working_dates(start: datetime, end: datetime) -> list:
