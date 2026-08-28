@@ -1,25 +1,129 @@
-# Especificaciones de proceso para análisis de capacidad (Cp/Cpk)
-# Estos límites deben coincidir con los usados en src/data_generator.py
+# Configuración de calidad y variables de proceso.
+# Los límites son sintéticos y deben interpretarse como supuestos del proyecto.
 
-variables_criticas:
-  peso_promedio:
-    nombre: "Peso (g)"
-    nominal: 500.0
-    lsl: 492.0    # límite inferior de especificación
-    usl: 508.0    # límite superior de especificación
+quality:
+  capability:
+    thresholds:
+      excellent: 1.33
+      acceptable: 1.00
 
-  longitud_promedio:
-    nombre: "Longitud (mm)"
-    nominal: 120.0
-    lsl: 117.5
-    usl: 122.5
+  loss_allocation:
+    scrap_ratio: 0.30
+    rework_ratio: 0.70
 
-# Umbrales de semáforo para interpretación de Cpk (estándar de industria)
-umbrales_cpk:
-  excelente: 1.33   # Cpk >= 1.33 -> proceso capaz, verde
-  aceptable: 1.00   # 1.00 <= Cpk < 1.33 -> marginal, amarillo
-                     # Cpk < 1.00 -> no capaz, rojo
+variables:
+  FILL:
+    - id: fill_weight_g
+      name: "Peso de llenado"
+      unit: "g"
+      target: 500.0
+      lsl: 492.0
+      usl: 508.0
+    - id: fill_temperature_c
+      name: "Temperatura de llenado"
+      unit: "°C"
+      target: 75.0
+      lsl: 70.0
+      usl: 80.0
+    - id: line_speed_upm
+      name: "Velocidad de línea"
+      unit: "unid/min"
+      target: 75.0
+      lsl: 68.0
+      usl: 82.0
 
-# Supuesto de división de unidades defectuosas (debe coincidir con data_generator.py)
-proporcion_scrap: 0.30       # 30% de defectuosos son scrap irrecuperable
-proporcion_reproceso: 0.70   # 70% son recuperables mediante reproceso
+  SEAM:
+    - id: seam_height_mm
+      name: "Altura de costura"
+      unit: "mm"
+      target: 2.80
+      lsl: 2.50
+      usl: 3.10
+    - id: seam_width_mm
+      name: "Ancho de costura"
+      unit: "mm"
+      target: 1.20
+      lsl: 1.00
+      usl: 1.40
+    - id: seam_thickness_mm
+      name: "Espesor de costura"
+      unit: "mm"
+      target: 0.85
+      lsl: 0.70
+      usl: 1.00
+
+  CHECK:
+    - id: check_weight_g
+      name: "Peso de control"
+      unit: "g"
+      target: 500.0
+      lsl: 492.0
+      usl: 508.0
+    - id: check_weight_deviation_g
+      name: "Desviación de peso"
+      unit: "g"
+      target: 0.0
+      lsl: -8.0
+      usl: 8.0
+
+  CAPPER:
+    - id: cap_torque_nm
+      name: "Torque de tapa"
+      unit: "N·m"
+      target: 1.80
+      lsl: 1.50
+      usl: 2.10
+    - id: cap_seal_integrity_pct
+      name: "Integridad de sello de tapa"
+      unit: "%"
+      target: 98.0
+      lsl: 95.0
+      usl: 100.0
+
+  FFS:
+    - id: seal_temperature_c
+      name: "Temperatura de sellado"
+      unit: "°C"
+      target: 165.0
+      lsl: 155.0
+      usl: 175.0
+    - id: seal_pressure_kpa
+      name: "Presión de sellado"
+      unit: "kPa"
+      target: 420.0
+      lsl: 390.0
+      usl: 450.0
+    - id: line_speed_upm
+      name: "Velocidad de línea"
+      unit: "unid/min"
+      target: 45.0
+      lsl: 40.0
+      usl: 50.0
+
+  SEAL:
+    - id: seal_strength_n
+      name: "Resistencia del sello"
+      unit: "N"
+      target: 25.0
+      lsl: 20.0
+      usl: 30.0
+    - id: seal_leak_rate_pct
+      name: "Tasa de fuga"
+      unit: "%"
+      target: 0.5
+      lsl: 0.0
+      usl: 1.5
+
+  PACK:
+    - id: case_weight_kg
+      name: "Peso de caja"
+      unit: "kg"
+      target: 12.0
+      lsl: 11.5
+      usl: 12.5
+    - id: pack_integrity_pct
+      name: "Integridad del paquete"
+      unit: "%"
+      target: 99.0
+      lsl: 97.0
+      usl: 100.0
