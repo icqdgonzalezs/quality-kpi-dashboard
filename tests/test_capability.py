@@ -155,3 +155,49 @@ def test_resumen_capacidad_falla_si_dataset_vacio():
 
     with pytest.raises(ValueError, match="vacío"):
         resumen_capacidad(df, config)
+
+def test_calcular_cp_cpk_accepts_list_input():
+    result = calcular_cp_cpk([499, 500, 501, 500], lsl=490, usl=510)
+    assert result["n"] == 4
+
+
+def test_calcular_cp_cpk_rejects_invalid_limits():
+    result = calcular_cp_cpk([499, 500, 501], lsl=float("nan"), usl=510)
+    assert result["clasificacion"] == "Límites inválidos"
+
+
+def test_calcular_cp_cpk_marginal_classification():
+    result = calcular_cp_cpk([497, 498, 502, 503], lsl=490, usl=510)
+    assert result["clasificacion"] in {
+        "Marginal (monitorear)",
+        "Capaz (excelente)",
+        "No capaz (acción requerida)",
+    }
+
+
+def test_calcular_cp_cpk_not_capable_classification():
+    result = calcular_cp_cpk([480, 481, 482, 483], lsl=490, usl=510)
+    assert result["clasificacion"] == "No capaz (acción requerida)"
+
+
+def test_resumen_capacidad_requires_dataframe():
+    try:
+        resumen_capacidad([], {})
+        assert False
+    except TypeError as exc:
+        assert "DataFrame" in str(exc)
+
+
+def test_resumen_capacidad_requires_configuration_keys():
+    import pandas as pd
+
+    df = pd.DataFrame({"peso": [499, 500, 501]})
+
+    try:
+        resumen_capacidad(
+            df,
+            {"peso": {"lsl": 490, "usl": 510}},
+        )
+        assert False
+    except ValueError as exc:
+        assert "nombre" in str(exc)

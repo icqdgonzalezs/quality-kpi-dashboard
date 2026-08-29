@@ -283,15 +283,6 @@ def calcular_kpis_por_dimension(
         .reset_index()
     )
 
-    if (
-        agrupado["unidades_producidas"]
-        <= 0
-    ).any():
-        raise ValueError(
-            "Existen dimensiones con "
-            "unidades_producidas menores o iguales a cero."
-        )
-
     agrupado["fpy"] = (
         agrupado["unidades_producidas"]
         - agrupado["unidades_defectuosas"]

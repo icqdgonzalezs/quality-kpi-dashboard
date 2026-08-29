@@ -439,3 +439,113 @@ def test_lote_critico_falla_si_defectuosas_superan_produccion(
         match="superar",
     ):
         identificar_lote_critico(df)
+
+def test_calcular_kpis_globales_requires_all_columns(df_muestra):
+    df = df_muestra.drop(columns=["unidades_scrap"])
+
+    with pytest.raises(ValueError, match="Faltan columnas requeridas"):
+        calcular_kpis_globales(df)
+
+
+def test_calcular_kpis_globales_rejects_null_units(df_muestra):
+    df = df_muestra.copy()
+    df.loc[0, "unidades_defectuosas"] = None
+
+    with pytest.raises(ValueError, match="valores nulos"):
+        calcular_kpis_globales(df)
+
+
+def test_calcular_kpis_globales_rejects_negative_defects(df_muestra):
+    df = df_muestra.copy()
+    df.loc[0, "unidades_defectuosas"] = -1
+
+    with pytest.raises(ValueError, match="no pueden ser negativas"):
+        calcular_kpis_globales(df)
+
+
+def test_calcular_kpis_globales_rejects_non_numeric_units(df_muestra):
+    df = df_muestra.copy()
+    df["unidades_producidas"] = df["unidades_producidas"].astype(str)
+
+    with pytest.raises(ValueError, match="deben ser numéricas"):
+        calcular_kpis_globales(df)
+
+
+def test_calcular_pareto_rejects_non_numeric_defects(df_muestra):
+    df = df_muestra.copy()
+    df["unidades_defectuosas"] = df["unidades_defectuosas"].astype(str)
+
+    with pytest.raises(ValueError, match="debe ser numérica"):
+        calcular_pareto(df)
+
+
+def test_calcular_pareto_rejects_null_defects(df_muestra):
+    df = df_muestra.copy()
+    df.loc[0, "unidades_defectuosas"] = None
+
+    with pytest.raises(ValueError, match="no puede contener nulos"):
+        calcular_pareto(df)
+
+
+def test_identificar_lote_critico_rejects_non_numeric_production(df_muestra):
+    df = df_muestra.copy()
+    df["unidades_producidas"] = df["unidades_producidas"].astype(str)
+
+    with pytest.raises(ValueError, match="debe ser numérica"):
+        identificar_lote_critico(df)
+
+
+def test_identificar_lote_critico_rejects_non_numeric_defects(df_muestra):
+    df = df_muestra.copy()
+    df["unidades_defectuosas"] = df["unidades_defectuosas"].astype(str)
+
+    with pytest.raises(ValueError, match="debe ser numérica"):
+        identificar_lote_critico(df)
+
+
+def test_identificar_lote_critico_rejects_null_values(df_muestra):
+    df = df_muestra.copy()
+    df.loc[0, "unidades_producidas"] = None
+
+    with pytest.raises(ValueError, match="no pueden contener nulos"):
+        identificar_lote_critico(df)
+
+
+def test_identificar_lote_critico_rejects_negative_defects(df_muestra):
+    df = df_muestra.copy()
+    df.loc[0, "unidades_defectuosas"] = -1
+
+    with pytest.raises(ValueError, match="no pueden ser negativas"):
+        identificar_lote_critico(df)
+
+
+def test_identificar_lote_critico_rejects_zero_production(df_muestra):
+    df = df_muestra.copy()
+    df.loc[0, "unidades_producidas"] = 0
+
+    with pytest.raises(ValueError, match="deben ser mayores que cero"):
+        identificar_lote_critico(df)
+
+
+def test_calcular_kpis_globales_rejects_zero_production(df_muestra):
+    df = df_muestra.copy()
+    df.loc[0, "unidades_producidas"] = 0
+
+    with pytest.raises(ValueError, match="mayores que cero"):
+        calcular_kpis_globales(df)
+
+
+def test_calcular_kpis_globales_rejects_negative_scrap(df_muestra):
+    df = df_muestra.copy()
+    df.loc[0, "unidades_scrap"] = -1
+
+    with pytest.raises(ValueError, match="scrap no pueden ser negativas"):
+        calcular_kpis_globales(df)
+
+
+def test_calcular_kpis_globales_rejects_negative_rework(df_muestra):
+    df = df_muestra.copy()
+    df.loc[0, "unidades_reproceso"] = -1
+
+    with pytest.raises(ValueError, match="reproceso no pueden ser negativas"):
+        calcular_kpis_globales(df)
